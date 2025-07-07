@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taxi Booking System</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/style.css">
+    <script src="/index.js"></script>
+</head>
+<body>
+    <div class="bg-dark text-white py-1 small">
+        <div class="container d-flex justify-content-center align-items-center flex-wrap">
+          <div class="text-center">
+            <i class="fas fa-envelope me-2"></i>
+            <a href="mailto:info@ryanride.com" class="text-white text-decoration-none me-4">info@ryanride.com</a>
+      
+            <i class="fas fa-phone-alt me-2"></i>
+            <a href="tel:+441234567890" class="text-white text-decoration-none">+977 9876543210</a>
+          </div>
+        </div>
+      </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+          <!-- Brand -->
+          <a class="navbar-brand fw-bold fs-4" href="#">
+            <i class="fas fa-taxi me-2"></i>RyanRide
+          </a>
+      
+          <!-- Toggle button for mobile -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <!-- Centered menu and WhatsApp -->
+          <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav text-center">
+              <li class="nav-item">
+                <a class="nav-link active" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#testimonials">Testimonials</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+      
+          <!-- Right section: Dark Mode + WhatsApp -->
+          <div class="d-flex align-items-center">
+            <!-- Dark Mode -->
+            <div class="form-check form-switch me-3">
+              <input class="form-check-input" type="checkbox" id="darkModeToggle">
+              <label class="form-check-label text-white" for="darkModeToggle">
+              </label>
+            </div>
+      
+            <!-- WhatsApp Icon -->
+            <a href="https://wa.me/9876543210" target="_blank" class="btn btn-warning btn-sm" style="font-weight: bold; border-radius: 10px;">
+              <i class="fab fa-whatsapp me-1"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+      </nav>
+      
+    <!-- Hero Section with Carousel -->
+    <section id="home" class="hero-carousel-container">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="8000">
+            <div class="carousel-inner">
+          
+              <!-- Slide 1 -->
+              <div class="carousel-item active">
+                <div class="carousel-bg" style="background-image: url('https://images.unsplash.com/photo-1630717285906-29364ffacea0?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                  <div class="carousel-overlay"></div>
+                  <div class="carousel-caption text-center">
+                    <h2 class="display-3 fw-bold">Your Journey, Our Priority</h2>
+                    <p class="lead">Reliable, fast, and comfortable taxi services 24/7.</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Slide 2 -->
+              <div class="carousel-item">
+                <div class="carousel-bg" style="background-image: url('https://images.unsplash.com/photo-1628947733273-cdae71c9bfd3?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                  <div class="carousel-overlay"></div>
+                  <div class="carousel-caption text-center">
+                    <h2 class="display-3 fw-bold">Seamless Airport Transfers</h2>
+                    <p class="lead">On-time pickups and drop-offs to and from the airport.</p>
+                  </div>
+                </div>
+              </div>
+          
+              <!-- Slide 3 -->
+              <div class="carousel-item">
+                <div class="carousel-bg" style="background-image: url('https://images.unsplash.com/photo-1701889052366-931ac640089c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fENhYiUyMGJvb2tpbmd8ZW58MHx8MHx8fDA%3D');">
+                  <div class="carousel-overlay"></div>
+                  <div class="carousel-caption text-center">
+                    <h2 class="display-3 fw-bold">Comfort and Style</h2>
+                    <p class="lead">Experience luxury with our premium vehicle options.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        <!-- Action buttons below carousel but within the hero section's visual flow -->
+        <div class="hero-action-buttons">
+            <a href="#book-now" class="btn btn-warning btn-lg shadow-sm">
+                <i class="fas fa-taxi me-2"></i>Book
+            </a>
+            <a href="tel:+9779876543210" class="btn btn-warning btn-lg shadow-sm">
+                <i class="fas fa-phone me-2"></i>Call
+            </a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="section-padding bg-light-grey">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://images.unsplash.com/photo-1659493430477-3750838e3d61?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fENhYiUyMGJvb2tpbmd8ZW58MHx8MHx8fDA%3D" class="img-fluid rounded-3 shadow-lg" alt="About Us Image">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="display-5 fw-bold mb-4">About RyanRide Taxi Service</h2>
+                    <p class="lead">
+                        RyanRide is dedicated to providing top-notch taxi services with a focus on safety, comfort, and punctuality.
+                        With a fleet of well-maintained vehicles and experienced drivers, we ensure a smooth and pleasant journey every time.
+                    </p>
+                    <p>
+                        Our mission is to offer convenient and affordable transportation solutions for individuals and businesses.
+                        Whether it's a quick ride across town, an airport transfer, or a special event, RyanRide is your trusted partner.
+                        We pride ourselves on our customer-centric approach and strive to exceed expectations with every ride.
+                    </p>
+                    <a href="#book-now" class="btn btn-primary btn-lg mt-3">Book Your Ride Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card service-card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-city card-icon mb-3"></i>
+                            <h5 class="card-title fw-bold">City Transfers</h5>
+                            <p class="card-text">Quick and reliable rides within the city, getting you to your destination on time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-plane-departure card-icon mb-3"></i>
+                            <h5 class="card-title fw-bold">Airport Transfers</h5>
+                            <p class="card-text">Stress-free pickups and drop-offs to all major airports, 24/7.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-car-side card-icon mb-3"></i>
+                            <h5 class="card-title fw-bold">Hourly Rentals</h5>
+                            <p class="card-text">Book a taxi for several hours for business meetings or city tours.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-calendar-alt card-icon mb-3"></i>
+                            <h5 class="card-title fw-bold">Event Transportation</h5>
+                            <p class="card-text">Reliable transport for weddings, concerts, and other special events.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-suitcase-rolling card-icon mb-3"></i>
+                            <h5 class="card-title fw-bold">Luggage Assistance</h5>
+                            <p class="card-text">Our drivers are happy to assist with your luggage, ensuring a smooth experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card text-center">
+                        <div class="card-body">
+                            <i class="fas fa-child card-icon mb-3"></i>
+                            <h5 class="card-title fw-bold">Child Seat Available</h5>
+                            <p class="card-text">Request a child seat for safe and comfortable travel with your little ones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-padding bg-medium-grey">
+        <div class="container">
+            <h2 class="text-center display-5 fw-bold mb-5">What Our Customers Say</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card testimonial-card text-center">
+                        <div class="card-body">
+                            <img src="https://placehold.co/80x80/007bff/ffffff?text=JD" alt="Customer 1">
+                            <p class="card-text fst-italic">"RyanRide is incredibly reliable! Always on time, and the cars are spotless. Highly recommend for airport transfers."</p>
+                            <h5 class="card-title fw-bold mt-3">- Jane Doe</h5>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card testimonial-card text-center">
+                        <div class="card-body">
+                            <img src="https://placehold.co/80x80/28a745/ffffff?text=MS" alt="Customer 2">
+                            <p class="card-text fst-italic">"The dark mode feature is a game-changer! Great service and a very user-friendly website. Will definitely use again."</p>
+                            <h5 class="card-title fw-bold mt-3">- Mark Smith</h5>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card testimonial-card text-center">
+                        <div class="card-body">
+                            <img src="https://placehold.co/80x80/ffc107/343a40?text=LA" alt="Customer 3">
+                            <p class="card-text fst-italic">"Booking was super easy, and the driver was professional and friendly. A truly comfortable ride to my meeting."</p>
+                            <h5 class="card-title fw-bold mt-3">- Lisa Adams</h5>
+                            <div class="text-warning">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Now Form Section -->
+    <section id="book-now" class="booking-form-section container py-5 px-3 px-md-5 my-5 shadow-lg rounded-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <h2 class="text-center mb-4 dark-mode-text">Book Your Ride</h2>
+            <p class="text-center mb-5 dark-mode-muted">
+                Fill out the form below to book your taxi. We'll confirm your ride shortly!
+            </p>
+      
+            <form>
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <label for="fullName" class="form-label dark-mode-text">Full Name</label>
+                  <input type="text" class="form-control dark-mode-input" id="fullName" placeholder="John Doe" required>
+                </div>
+      
+                <div class="col-md-6">
+                  <label for="phoneNumber" class="form-label">Phone Number</label>
+                  <input type="tel" class="form-control" id="phoneNumber" placeholder="+44 7123 456789" required>
+                </div>
+      
+                <div class="col-12">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                </div>
+      
+                <div class="col-md-6">
+                  <label for="pickupLocation" class="form-label">Pickup Address</label>
+                  <input type="text" class="form-control" id="pickupLocation" placeholder="e.g., 123 Main Street" required>
+                </div>
+      
+                <div class="col-md-6">
+                  <label for="destination" class="form-label">Destination</label>
+                  <input type="text" class="form-control" id="destination" placeholder="e.g., Airport" required>
+                </div>
+      
+                <div class="col-md-6">
+                  <label for="pickupDate" class="form-label">Pickup Date</label>
+                  <input type="date" class="form-control" id="pickupDate" required>
+                </div>
+      
+                <div class="col-md-6">
+                  <label for="pickupTime" class="form-label">Pickup Time</label>
+                  <input type="time" class="form-control" id="pickupTime" required>
+                </div>
+      
+                <div class="col-md-6">
+                  <label for="passengerCount" class="form-label">Number of Passengers</label>
+                  <input type="number" class="form-control" id="passengerCount" min="1" placeholder="e.g., 2" required>
+                </div>
+      
+                <div class="col-md-6">
+                  <label for="vehicleType" class="form-label">Preferred Vehicle Type</label>
+                  <select class="form-select" id="vehicleType" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option>Standard Sedan</option>
+                    <option>SUV</option>
+                    <option>Luxury Car</option>
+                    <option>Van (6+ Passengers)</option>
+                  </select>
+                </div>
+      
+                <div class="col-12">
+                  <label for="specialInstructions" class="form-label">Additional Notes</label>
+                  <textarea class="form-control" id="specialInstructions" rows="3" placeholder="e.g., Need a child seat or large luggage space"></textarea>
+                </div>
+      
+                <div class="col-12 text-center mt-4">
+                  <button type="submit" class="btn btn-primary btn-lg px-5">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      
+    <div class="container">
+        <div style="width: 100%; height: 400px; border-radius: 8px; overflow: hidden; box-shadow: 0 0 8px rgba(0,0,0,0.15);">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.2325636687677!2d-0.7492894844009388!3d51.3271117796237!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760f157224da8f%3A0xa6a84e9b124b7e14!2sCamberley%2C%20Surrey%2C%20UK!5e0!3m2!1sen!2suk!4v1691790000000!5m2!1sen!2suk"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-dark text-white py-5 mt-5">
+        <div class="container">
+          <div class="row gy-4">
+            
+            <!-- About & Slogan -->
+            <div class="col-md-4">
+              <h5 class="mb-3 fw-bold">RyanRide Taxi Service</h5>
+              <p>Your trusted partner for reliable and comfortable taxi rides — 24/7 across the city.</p>
+              <p><em>“Your journey, our priority.”</em></p>
+            </div>
+      
+            <!-- Quick Links -->
+            <div class="col-md-2">
+              <h6 class="mb-3 fw-semibold">Quick Links</h6>
+              <ul class="list-unstyled">
+                <li><a href="#home" class="text-white text-decoration-none">Home</a></li>
+                <li><a href="#about" class="text-white text-decoration-none">About Us</a></li>
+                <li><a href="#services" class="text-white text-decoration-none">Services</a></li>
+                <li><a href="#testimonials" class="text-white text-decoration-none">Testimonials</a></li>
+                <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+              </ul>
+            </div>
+      
+            <!-- Contact Info -->
+            <div class="col-md-3">
+              <h6 class="mb-3 fw-semibold">Contact Us</h6>
+              <p><i class="fas fa-envelope me-2"></i><a href="mailto:info@ryanride.com" class="text-white text-decoration-none">info@ryanride.com</a></p>
+              <p><i class="fas fa-phone-alt me-2"></i><a href="tel:+9779876543210" class="text-white text-decoration-none">+977 9876543210</a></p>
+              <p><i class="fas fa-map-marker-alt me-2"></i>Kathmandu, Nepal</p>
+              <p><strong>Hours:</strong> 24/7 Service</p>
+            </div>
+      
+            <!-- Newsletter Signup -->
+            <div class="col-md-3">
+              <h6 class="mb-3 fw-semibold">Stay Updated</h6>
+              <p>Subscribe to our newsletter for exclusive offers and updates.</p>
+              <form class="d-flex" onsubmit="event.preventDefault(); alert('Subscribed!');">
+                <input type="email" class="form-control me-2" placeholder="Your email" required>
+                <button type="submit" class="btn btn-warning">Subscribe</button>
+              </form>
+      
+              <div class="mt-3">
+                <a href="#" class="text-white me-3 fs-5"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white me-3 fs-5"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white fs-5"><i class="fab fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+      
+          <hr class="my-4 border-secondary">
+      
+          <div class="text-center small">
+            <p class="mb-1">&copy; 2024 RyanRide Taxi Service. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+      
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/1234567890?text=Hello%2C%20I%20would%20like%20to%20book%20a%20taxi." class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS CDN (Bundle with Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+ 
+</body>
+</html>

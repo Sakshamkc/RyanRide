@@ -1,0 +1,326 @@
+        /* Custom CSS for styling and dark mode */
+        body {
+            font-family: 'Inter', sans-serif; /* Using Inter font as per instructions */
+            transition: background-color 0.3s, color 0.3s;
+            background-color: #f8f9fa; /* Light mode default background */
+            color: #1a202c; /* Light mode default text color */
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #1a202c; /* Dark mode background */
+            color: #e2e8f0; /* Dark mode text color */
+        }
+
+        body.dark-mode .navbar {
+            background-color: #1a202c !important;
+            border-bottom: 1px solid #4a5568;
+        }
+
+        body.dark-mode .navbar-brand,
+        body.dark-mode .nav-link {
+            color: #e2e8f0 !important;
+        }
+
+        body.dark-mode .card {
+            background-color: #1a202c;
+            color: #e2e8f0;
+            border-color: #4a5568;
+        }
+
+        body.dark-mode .form-control,
+        body.dark-mode .form-select {
+            background-color: #4a5568;
+            color: #e2e8f0;
+            border-color: #6b7280;
+        }
+
+        body.dark-mode .form-control::placeholder {
+            color: #cbd5e0;
+        }
+
+        body.dark-mode .btn-outline-dark {
+            color: #e2e8f0;
+            border-color: #e2e8f0;
+        }
+
+        body.dark-mode .btn-outline-dark:hover {
+            background-color: #e2e8f0;
+            color: #1a202c;
+        }
+
+        /* Hero section styling (now for carousel container) */
+        .hero-carousel-container {
+            position: relative;
+            margin-bottom: 30px;
+            border-radius: 0 0 15px 15px;
+            overflow: hidden; /* Ensures rounded corners apply to carousel content */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+        }
+
+        .carousel-bg {
+            position: relative;
+            height: 600px;
+            background-size: cover;
+            background-position: center;
+          }
+        
+          .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+          }
+        
+          .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: #fff;
+            padding: 0 20px;
+          }
+        
+          @media (max-width: 768px) {
+            .carousel-caption h2 {
+              font-size: 2rem;
+            }
+        
+            .carousel-caption p {
+              font-size: 1rem;
+            }
+          }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+       
+        /* Action buttons below carousel */
+        .hero-action-buttons {
+            position: absolute;
+            bottom: 30px; /* Adjust as needed */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10; /* Ensure buttons are above carousel */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between buttons */
+        }
+
+        .hero-action-buttons .btn {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px; /* Pill-shaped buttons */
+            transition: transform 0.2s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-action-buttons .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Section common styling */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .bg-light-grey {
+            background-color: #f8f9fa;
+        }
+        
+        body.dark-mode .bg-light-grey {
+            background-color: #1a202c;
+        }
+
+        .bg-medium-grey {
+            background-color: #e9ecef;
+        }
+        body.dark-mode .bg-medium-grey {
+            background-color: #1a202c;
+        }
+
+        /* Card styling for services/testimonials */
+        .service-card, .testimonial-card {
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            height: 100%; /* Ensure cards in a row have same height */
+        }
+
+        .service-card:hover, .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card .card-body, .testimonial-card .card-body {
+            padding: 30px;
+        }
+
+        .service-card .card-icon {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        body.dark-mode .service-card .card-icon {
+            color: #66b3ff; /* Lighter blue for dark mode */
+        }
+
+        .testimonial-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #007bff;
+        }
+        body.dark-mode .testimonial-card img {
+            border-color: #66b3ff;
+        }
+
+        /* Form section styling */
+        .booking-form-section {
+            padding: 50px 0;
+            background-color: #e9ecef; /* Light grey background for form section */
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        body.dark-mode .booking-form-section {
+            background-color: #1a202c; /* Dark mode background for form section */
+        }
+
+        .form-control, .form-select {
+            border-radius: 8px;
+            padding: 12px;
+            border: 1px solid #ced4da;
+        }
+
+        .form-label {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 8px;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        /* Dark mode toggle switch */
+        .form-check-input:checked {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .form-check-input:focus {
+            box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 15px 15px 0 0; /* Rounded top corners */
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000; /* Ensure it's above other content */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease-in-out, background-color 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+            color: #FFF; /* Keep color white on hover */
+        }
+
+        .whatsapp-float i {
+            margin-top: 0; /* Adjust icon vertical alignment */
+        }
+        body.dark-mode .booking-form-section {
+            background-color: #1e1e1e;
+            color: #f1f1f1;
+        }
+        
+        /* Form labels */
+        body.dark-mode .booking-form-section .form-label {
+            color: #f1f1f1;
+        }
+        
+        /* Form inputs, dropdowns */
+        body.dark-mode .booking-form-section .form-control,
+        body.dark-mode .booking-form-section .form-select {
+            background-color: #2c2c2c;
+            color: #f1f1f1;
+            border: 1px solid #444;
+        }
+        
+        /* Placeholder text */
+        body.dark-mode .booking-form-section .form-control::placeholder {
+            color: #bbb;
+        }
+        
+        /* Text inside paragraph (e.g. form subtitle) */
+        body.dark-mode .booking-form-section p,
+        body.dark-mode .booking-form-section h2 {
+            color: #f1f1f1;
+        }
+        
+          footer a.text-white:hover {
+            color: #ffc107; /* Bootstrap warning color */
+            text-decoration: underline;
+          }
+          
+          footer .fab {
+            transition: color 0.3s ease;
+          }
+          
+          footer .fab:hover {
+            color: #ffc107;
+          }
+
+          @media (max-width: 576px) {
+            input[type="date"], input[type="time"] {
+              font-size: 16px; /* Prevent zoom on mobile */
+            }
+          }
+        /* Responsive adjustments for the floating button */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+        }
