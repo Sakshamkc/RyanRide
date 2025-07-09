@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/style.css">
     <script src="/index.js"></script>
+    <script src="/testimonials.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="/firebase-booking.js"></script>
 </head>
@@ -56,8 +57,11 @@
                 <a class="nav-link" href="#why-us">Features</a>
               </li>
               <li class="nav-item">
+               <a class="nav-link" href="#testimonials">Testimonials</a>
+             </li>           
+              <li class="nav-item">
                 <a class="nav-link" href="#book-now">Contact</a>
-              </li>              
+              </li>  
             </ul>
           </div>
       
@@ -257,6 +261,37 @@
             <p class="card-text">Your safety is our top priority — background-checked drivers & GPS-tracked rides.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <section id="testimonials" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="mb-4 fw-bold">What Our Customers Say</h2>
+
+    <!-- Carousel Container -->
+    <div class="position-relative">
+      <!-- Avatars -->
+      <div class="d-flex justify-content-center align-items-center gap-3 flex-wrap" id="avatarContainer">
+        <!-- Avatars will be inserted dynamically -->
+      </div>
+
+      <!-- Arrows -->
+      <button id="prevBtn" class="btn btn-outline-secondary position-absolute top-50 start-0 translate-middle-y">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button id="nextBtn" class="btn btn-outline-secondary position-absolute top-50 end-0 translate-middle-y">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+    <!-- Testimonial Text Box -->
+    <div class="card shadow-sm mx-auto mt-4" style="max-width: 600px;">
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p id="testimonialText" class="mb-3 testimonial-text>"Loading testimonial... "></p>
+          <footer class="blockquote-footer mt-2" id="testimonialAuthor">...</footer>
+        </blockquote>
       </div>
     </div>
   </div>

@@ -307,6 +307,60 @@
           footer .fab:hover {
             color: #ffc107;
           }
+            #testimonials img:hover {
+                transform: scale(1.1);
+                    transition: 0.3s ease;
+                    cursor: pointer;
+        }
+        #testimonials img {
+    transition: transform 0.3s ease;
+  }
+  #testimonials img:hover {
+    transform: scale(1.1);
+  }
+  #testimonials .card {
+    background-color: var(--bs-light);
+  }
+  body.dark-mode #testimonials {
+    background-color: #1a202c !important;
+    color: #eee;
+  }
+  body.dark-mode #testimonials .card {
+    background-color: #1a202c;
+  }
+  body.dark-mode #testimonials {
+    background-color: #1a202c;
+    color: #eee;
+  }
+  body.dark-mode #testimonials .card {
+    background-color: #1a202c;
+  }
+  .testimonial-text {
+  color: #6c757d; /* Bootstrap muted color */
+}
+
+/* Dark mode override */
+body.dark-mode .testimonial-text {
+  color: #ccc; /* Lighter for better contrast */
+}
+  /* Dark mode for testimonial carousel buttons */
+body.dark-mode #testimonials .btn-outline-secondary {
+  color: #ddd;
+  border-color: #666;
+}
+body.dark-mode #testimonials .btn-outline-secondary:hover {
+  background-color: #ddd;
+  color: #1a202c;
+}
+
+/* Dark mode avatar border tweaks */
+body.dark-mode #testimonials img.border-secondary {
+  border-color: #555 !important;
+}
+body.dark-mode #testimonials img.border-warning {
+  border-color: #ffc107 !important;
+}
+
 
           @media (max-width: 576px) {
             input[type="date"], input[type="time"] {
