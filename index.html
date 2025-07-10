@@ -359,8 +359,7 @@
                   <label for="destination" class="form-label">Destination (Door No, Street Name,PostCode)</label>
                   <input type="text" class="form-control" id="destination" required>
                 </div>
-      
-                <div class="col-md-6">
+                 <div class="col-md-6">
                   <label for="pickupDate" class="form-label">Pickup Date</label>
                   <input type="date" class="form-control" id="pickupDate" required>
                 </div>
@@ -369,6 +368,15 @@
                   <label for="pickupTime" class="form-label">Pickup Time</label>
                   <input type="time" class="form-control" id="pickupTime" required>
                 </div>
+
+                <div class="col-md-6">
+                  <label for="distance" class="form-label">Distance (in miles)</label>
+                  <input type="number" class="form-control" id="distance" step="0.1" min="0" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="totalFare" class="form-label">Estimated Fare (£)</label>
+                  <input type="text" class="form-control" id="totalFare" readonly>
+                </div>              
       
                 <div class="col-md-6">
                   <label for="passengerCount" class="form-label">Number of Passengers</label>
