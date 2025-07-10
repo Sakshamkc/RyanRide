@@ -398,7 +398,9 @@ body.dark-mode #testimonials .testimonial-box p {
 body.dark-mode #testimonials .testimonial-box small {
   color: #aaa !important;
 }
-
+.dark-mode .text-muted {
+  color: #cccccc !important; /* Lighter gray for better visibility */
+}
 /* Responsive testimonial box spacing */
 @media (max-width: 576px) {
   #testimonials .testimonial-box {

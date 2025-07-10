@@ -22,15 +22,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".booking-form-section form");
   if (!form) return;
 
+  const postcodeRegex = /[A-Z]{1,2}\d{1,2}[A-Z]?\s?\d[A-Z]{2}$/i;
+
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
+
+    const pickupVal = document.getElementById("pickupLocation").value.trim();
+    const destinationVal = document.getElementById("destination").value.trim();
+
+    const pickupHasPostcode = postcodeRegex.test(pickupVal);
+    const destinationHasPostcode = postcodeRegex.test(destinationVal);
+
+    if (!pickupHasPostcode || !destinationHasPostcode) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Address',
+        text: 'Please include a valid postcode in both Pickup Address and Destination.',
+        confirmButtonColor: '#d33'
+      });
+      return; // Important: stop Firebase submission
+    }
 
     const data = {
       fullName: document.getElementById("fullName").value,
       phoneNumber: document.getElementById("phoneNumber").value,
       email: document.getElementById("email").value,
-      pickupLocation: document.getElementById("pickupLocation").value,
-      destination: document.getElementById("destination").value,
+      pickupLocation: pickupVal,
+      destination: destinationVal,
       pickupDate: document.getElementById("pickupDate").value,
       pickupTime: document.getElementById("pickupTime").value,
       passengerCount: document.getElementById("passengerCount").value,
