@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
       pickupTime: document.getElementById("pickupTime").value,
       passengerCount: document.getElementById("passengerCount").value,
       vehicleType: document.getElementById("vehicleType").value,
+      distance: document.getElementById("distance").value,
+      estimatedFare: document.getElementById("totalFare").value,
       specialInstructions: document.getElementById("specialInstructions").value
     };
 
