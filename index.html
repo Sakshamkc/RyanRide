@@ -277,24 +277,25 @@
       </div>
 
       <!-- Arrows -->
-      <button id="prevBtn" class="btn btn-outline-secondary position-absolute top-50 start-0 translate-middle-y">
+      <button id="prevBtn" class="btn btn-outline-secondary position-absolute" style="top: 50%; left: 10px; transform: translateY(-50%);">
         <i class="fas fa-chevron-left"></i>
       </button>
-      <button id="nextBtn" class="btn btn-outline-secondary position-absolute top-50 end-0 translate-middle-y">
+      <button id="nextBtn" class="btn btn-outline-secondary position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
         <i class="fas fa-chevron-right"></i>
       </button>
     </div>
 
     <!-- Testimonial Text Box -->
-    <div class="card shadow-sm mx-auto mt-4" style="max-width: 600px;">
-      <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <p id="testimonialText" class="mb-3 testimonial-text>"Loading testimonial... "></p>
-          <footer class="blockquote-footer mt-2" id="testimonialAuthor">...</footer>
-        </blockquote>
-      </div>
-    </div>
+   <div class="card shadow mx-auto mt-4 p-4 rounded-4 border-0 testimonial-box" style="max-width: 600px;">
+  <p id="testimonialText" class="fs-5 fst-italic text-dark-emphasis mb-4">
+    "Loading testimonial..."
+  </p>
+  <div class="d-flex justify-content-center">
+    <small id="testimonialAuthor" class="text-muted text-center">
+      — <strong>...</strong>, <span class="fst-italic">...</span>
+    </small>
   </div>
+</div>
 </section>
 
 

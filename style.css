@@ -361,6 +361,55 @@ body.dark-mode #testimonials img.border-warning {
   border-color: #ffc107 !important;
 }
 
+/* Aesthetic testimonial box styling */
+#testimonials .testimonial-box {
+  background-color: #fdfdfd;
+  border-left: 5px solid #ffc107;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  margin: 2rem auto 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#testimonials .testimonial-box p {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #495057;
+}
+
+#testimonials .testimonial-box small {
+  display: block;
+  margin-top: 1rem;
+  color: #6c757d;
+}
+
+/* Dark mode testimonial box */
+body.dark-mode #testimonials .testimonial-box {
+  background-color: #2c2c2c;
+  border-left: 5px solid #f6c744;
+}
+
+body.dark-mode #testimonials .testimonial-box p {
+  color: #ddd !important;
+}
+
+body.dark-mode #testimonials .testimonial-box small {
+  color: #aaa !important;
+}
+
+/* Responsive testimonial box spacing */
+@media (max-width: 576px) {
+  #testimonials .testimonial-box {
+    padding: 1.5rem;
+  }
+
+  #testimonials .testimonial-box p {
+    font-size: 1rem;
+  }
+}
+
 
           @media (max-width: 576px) {
             input[type="date"], input[type="time"] {

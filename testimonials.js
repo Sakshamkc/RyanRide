@@ -29,6 +29,24 @@ document.addEventListener("DOMContentLoaded", function () {
       company: "Arctic Travel",
       text: "They made my airport trip stress-free and easy!",
       avatar: "https://randomuser.me/api/portraits/women/5.jpg"
+    },
+    {
+      name: "Ryan Rai",
+      company: "Surya Nepal",
+      text: "They made my airport trip stress-free and easy!",
+      avatar: "https://randomuser.me/api/portraits/men/6.jpg"
+    },
+    {
+      name: "Ryan Rai",
+      company: "Surya Nepal",
+      text: "They made my airport trip stress-free and easy!",
+      avatar: "https://randomuser.me/api/portraits/men/7.jpg"
+    },
+    {
+      name: "Ryan Rai",
+      company: "Surya Nepal",
+      text: "They made my airport trip stress-free and easy!",
+      avatar: "https://randomuser.me/api/portraits/men/8.jpg"
     }
   ];
 
