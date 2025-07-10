@@ -265,38 +265,63 @@
     </div>
   </div>
 </section>
-    <section id="testimonials" class="py-5 bg-light">
-  <div class="container text-center">
-    <h2 class="mb-4 fw-bold">What Our Customers Say</h2>
+   <section class="testimonials-section" id="testimonials">
+        <h2>What Our Customers Say</h2>
 
-    <!-- Carousel Container -->
-    <div class="position-relative">
-      <!-- Avatars -->
-      <div class="d-flex justify-content-center align-items-center gap-3 flex-wrap" id="avatarContainer">
-        <!-- Avatars will be inserted dynamically -->
-      </div>
+        <div class="testimonial-container">
+            <div class="testimonial-item active">
+                <p class="testimonial-text">"Our experience with RyanRide was outstanding! Their dedication and quality of service exceeded our expectations. Highly recommended!"</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/2.jpg" alt="Customer 1" class="author-img">
+                    <p class="author-name">John Doe</p>
+                    <p class="author-title">CEO, ABC Corp</p>
+                </div>
+            </div>
 
-      <!-- Arrows -->
-      <button id="prevBtn" class="btn btn-outline-secondary position-absolute" style="top: 50%; left: 10px; transform: translateY(-50%);">
+            <div class="testimonial-item">
+                <p class="testimonial-text">"From start to finish, the team at RyanRide was professional and efficient. They truly understand their clients' needs and deliver exceptional results."</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Customer 1" class="author-img">
+                    <p class="author-name">Jane Smith</p>
+                    <p class="author-title">Founder, XYZ Solutions</p>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <p class="testimonial-text">"We saw a significant improvement after partnering with RyanRide. Their innovative approach and support have been invaluable to our growth."</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Customer 1" class="author-img">
+                    <p class="author-name">David Lee</p>
+                    <p class="author-title">Marketing Director, Global Enterprises</p>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <p class="testimonial-text">"We saw a significant improvement after partnering with RyanRide. Their innovative approach and support have been invaluable to our growth."</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/4.jpg" alt="Customer 1" class="author-img">
+                    <p class="author-name">Ryan Rai</p>
+                    <p class="author-title">Marketing Director, Surya Nepal</p>
+                </div>
+            </div>
+
+            <div class="testimonial-item">
+                <p class="testimonial-text">"We saw a significant improvement after partnering with RyanRide. Their innovative approach and support have been invaluable to our growth."</p>
+                <div class="testimonial-author">
+                    <img src="https://randomuser.me/api/portraits/men/5.jpg" alt="Customer 1" class="author-img">
+                    <p class="author-name">Rajesh Hamal</p>
+                    <p class="author-title">Managing Director, NG Entertainment</p>
+                </div>
+            </div>
+
+             <button id="prevBtn" class="btn btn-outline-secondary position-absolute" style="top: 50%; left: 10px; transform: translateY(-50%);">
         <i class="fas fa-chevron-left"></i>
       </button>
       <button id="nextBtn" class="btn btn-outline-secondary position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
         <i class="fas fa-chevron-right"></i>
       </button>
-    </div>
-
-    <!-- Testimonial Text Box -->
-   <div class="card shadow mx-auto mt-4 p-4 rounded-4 border-0 testimonial-box" style="max-width: 600px;">
-  <p id="testimonialText" class="fs-5 fst-italic text-dark-emphasis mb-4">
-    "Loading testimonial..."
-  </p>
-  <div class="d-flex justify-content-center">
-    <small id="testimonialAuthor" class="text-muted text-center">
-      — <strong>...</strong>, <span class="fst-italic">...</span>
-    </small>
-  </div>
-</div>
-</section>
+        </div>
+    </section>
 
 
     <!-- Book Now Form Section -->
@@ -326,12 +351,12 @@
                 </div>
       
                 <div class="col-md-6">
-                  <label for="pickupLocation" class="form-label">Pickup Address</label>
+                  <label for="pickupLocation" class="form-label">Pickup Address (Door No, Street Name,PostCode)</label>
                   <input type="text" class="form-control" id="pickupLocation" required>
                 </div>
       
                 <div class="col-md-6">
-                  <label for="destination" class="form-label">Destination</label>
+                  <label for="destination" class="form-label">Destination (Door No, Street Name,PostCode)</label>
                   <input type="text" class="form-control" id="destination" required>
                 </div>
       

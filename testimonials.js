@@ -1,102 +1,57 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const testimonials = [
-    {
-      name: "Anna Jónsdóttir",
-      company: "Iceland Foods",
-      text: "Great service and always on time. I highly recommend them!",
-      avatar: "https://randomuser.me/api/portraits/women/1.jpg"
-    },
-    {
-      name: "Björn Þorsteinsson",
-      company: "Nordic Tech",
-      text: "Very professional and clean vehicles. Loved the experience!",
-      avatar: "https://randomuser.me/api/portraits/men/2.jpg"
-    },
-    {
-      name: "Elín Sigurðardóttir",
-      company: "Blue Lagoon Tours",
-      text: "Driver was friendly and helpful. Will use again!",
-      avatar: "https://randomuser.me/api/portraits/women/3.jpg"
-    },
-    {
-      name: "Ólafur Einarsson",
-      company: "Reykjavik Corp.",
-      text: "Excellent service from start to finish. Smooth ride!",
-      avatar: "https://randomuser.me/api/portraits/men/4.jpg"
-    },
-    {
-      name: "Kristín Stefánsdóttir",
-      company: "Arctic Travel",
-      text: "They made my airport trip stress-free and easy!",
-      avatar: "https://randomuser.me/api/portraits/women/5.jpg"
-    },
-    {
-      name: "Ryan Rai",
-      company: "Surya Nepal",
-      text: "They made my airport trip stress-free and easy!",
-      avatar: "https://randomuser.me/api/portraits/men/6.jpg"
-    },
-    {
-      name: "Ryan Rai",
-      company: "Surya Nepal",
-      text: "They made my airport trip stress-free and easy!",
-      avatar: "https://randomuser.me/api/portraits/men/7.jpg"
-    },
-    {
-      name: "Ryan Rai",
-      company: "Surya Nepal",
-      text: "They made my airport trip stress-free and easy!",
-      avatar: "https://randomuser.me/api/portraits/men/8.jpg"
-    }
-  ];
-
-  let currentIndex = 0;
-
-  const avatarContainer = document.getElementById("avatarContainer");
-  const testimonialText = document.getElementById("testimonialText");
-  const testimonialAuthor = document.getElementById("testimonialAuthor");
-  const prevBtn = document.getElementById("prevBtn");
+    document.addEventListener("DOMContentLoaded",function(){
+          const testimonialItems = document.querySelectorAll('.testimonial-item');
+    const navDots = document.querySelectorAll('.nav-dot');
+    const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
+    let currentIndex = 0;
+    let autoSwipeInterval;
+    const swipeDuration = 7000; // Time in milliseconds (7 seconds)
 
-  function renderAvatars() {
-    avatarContainer.innerHTML = "";
-    testimonials.forEach((t, i) => {
-      const img = document.createElement("img");
-      img.src = t.avatar;
-      img.alt = t.name;
-      img.className = `rounded-circle border border-3 p-1 ${i === currentIndex ? 'border-warning' : 'border-secondary'}`;
-      img.style.width = i === currentIndex ? "70px" : "60px";
-      img.style.height = i === currentIndex ? "70px" : "60px";
-      img.style.cursor = "pointer";
-      img.addEventListener("click", () => {
-        currentIndex = i;
-        updateTestimonial();
-      });
-      avatarContainer.appendChild(img);
-    });
-  }
+    function showTestimonial(index) {
+        // Hide all testimonials and deactivate all dots
+        testimonialItems.forEach((item) => {
+            item.classList.remove('active');
+        });
+        navDots.forEach((dot) => {
+            dot.classList.remove('active');
+        });
 
-  function updateTestimonial() {
-    const current = testimonials[currentIndex];
-    testimonialText.textContent = `"${current.text}"`;
-    testimonialAuthor.innerHTML = `${current.name}, <cite title="Company">${current.company}</cite>`;
-    renderAvatars();
-  }
+        // Show the selected testimonial and activate its dot
+        if (testimonialItems[index]) {
+            testimonialItems[index].classList.add('active');
+            if (navDots[index]) {
+                navDots[index].classList.add('active');
+            }
+        }
+        currentIndex = index;
+    }
 
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-    updateTestimonial();
+    function nextTestimonial() {
+        currentIndex = (currentIndex + 1) % testimonialItems.length;
+        showTestimonial(currentIndex);
+    }
+
+    function startAutoSwipe() {
+        stopAutoSwipe(); // Clear any existing interval
+        autoSwipeInterval = setInterval(nextTestimonial, swipeDuration);
+    }
+
+    function stopAutoSwipe() {
+        clearInterval(autoSwipeInterval);
+    }
+
+    prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
+    showTestimonial(currentIndex);
   });
 
   nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % testimonials.length;
-    updateTestimonial();
+    currentIndex = (currentIndex + 1) % testimonialItems.length;
+    showTestimonial(currentIndex);
   });
+    // Initialize: Show the first testimonial and start swiping
+    showTestimonial(currentIndex);
+    startAutoSwipe();
 
-  setInterval(() => {
-    currentIndex = (currentIndex + 1) % testimonials.length;
-    updateTestimonial();
-  }, 8000);
 
-  updateTestimonial();
-});
+  });
