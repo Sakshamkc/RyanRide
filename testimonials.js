@@ -52,37 +52,4 @@
     // Initialize: Show the first testimonial and start swiping
     showTestimonial(currentIndex);
     startAutoSwipe();
-
-
-    const distanceInput = document.getElementById("distance");
-const totalFareInput = document.getElementById("totalFare");
-const pickupTimeInput = document.getElementById("pickupTime"); // Make sure this input exists!
-
-const baseFare = 3.60;
-const dayRate = 3.60;
-const nightRate = 5.00;
-
-function calculateFare() {
-  const distance = parseFloat(distanceInput.value);
-  const pickupTime = pickupTimeInput.value;
-
-  if (isNaN(distance) || distance < 0 || !pickupTime) {
-    totalFareInput.value = "";
-    return;
-  }
-
-  const [hourStr] = pickupTime.split(":");
-  const hour = parseInt(hourStr);
-
-  const isNight = (hour >= 23 || hour < 7);
-  const perMileRate = isNight ? nightRate : dayRate;
-
-  const totalFare = baseFare + (distance * perMileRate);
-  totalFareInput.value = totalFare.toFixed(2);
-}
-
-// Add event listeners for both inputs
-distanceInput.addEventListener("input", calculateFare);
-pickupTimeInput.addEventListener("input", calculateFare);
-
   });
