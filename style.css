@@ -601,6 +601,15 @@
           }
         }
 
+
+
+        .big-logo {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
         .logo-img {
           width: 80px;
           height: 80px;
@@ -608,9 +617,18 @@
           object-fit: cover;
         }
 
-        .big-logo {
-          width: 120px;
-          height: 120px;
-          border-radius: 50%;
-          object-fit: cover;
+        .slogan-text {
+          font-family: 'Times New Roman', serif;
+          /* Closest match to logo's font */
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 1.1;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 80px;
+          /* Match logo height for vertical alignment */
         }
