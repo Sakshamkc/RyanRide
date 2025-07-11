@@ -602,10 +602,16 @@
         }
 
         .logo-img {
-          width: 60px;
-          height: 60px;
+          width: 120px;
+          height: 120px;
           border-radius: 50%;
           object-fit: cover;
+        }
+
+        .slogan {
+          font-size: 0.9rem;
+          font-weight: 500;
+          white-space: nowrap;
         }
 
         .big-logo {
