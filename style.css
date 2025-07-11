@@ -612,6 +612,7 @@
           font-size: 0.9rem;
           font-weight: 500;
           white-space: nowrap;
+          color: #eee !important;
         }
 
         .big-logo {
