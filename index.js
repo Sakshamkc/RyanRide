@@ -46,46 +46,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-
-    const distanceInput = document.getElementById("distance");
-    const totalFareInput = document.getElementById("totalFare");
-    const pickupTimeInput = document.getElementById("pickupTime");
-    const vehicleTypeSelect = document.getElementById("vehicleType");
-
-    const baseFare = 3.60;
-    const dayRate = 3.60;
-    const nightRate = 5.00;
-
-    function calculateFare() {
-        const distance = parseFloat(distanceInput.value);
-        const pickupTime = pickupTimeInput.value;
-        const vehicleType = vehicleTypeSelect.value;
-
-        if (isNaN(distance) || distance < 0 || !pickupTime || !vehicleType) {
-            totalFareInput.value = "";
-            return;
-        }
-
-        const [hourStr] = pickupTime.split(":");
-        const hour = parseInt(hourStr);
-        const isNight = (hour >= 23 || hour < 7);
-
-        let perMileRate;
-        if (vehicleType === "Executive" || vehicleType === "Executive 8 Seater") {
-            perMileRate = 5.00;
-        } else {
-            perMileRate = isNight ? nightRate : dayRate;
-        }
-
-        const totalFare = baseFare + (distance * perMileRate);
-        totalFareInput.value = totalFare.toFixed(2);
-    }
-
-
-    // Add event listeners for both inputs
-    distanceInput.addEventListener("input", calculateFare);
-    pickupTimeInput.addEventListener("input", calculateFare);
-    vehicleTypeSelect.addEventListener("change", calculateFare);
-
 });

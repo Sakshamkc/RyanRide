@@ -52,13 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
       pickupDate: document.getElementById("pickupDate").value,
       pickupTime: document.getElementById("pickupTime").value,
       passengerCount: document.getElementById("passengerCount").value,
+      luggageCount: document.getElementById("luggageCount").value,
       vehicleType: document.getElementById("vehicleType").value,
       distance: document.getElementById("distance").value,
-      estimatedFare: document.getElementById("totalFare").value,
       specialInstructions: document.getElementById("specialInstructions").value
     };
 
     const bookingsRef = ref(database, 'bookings');
+    emailjs.send("service_tqf4jxm", "template_vvjgtxm", data, "ov9kTwusFdsoxTnHL");
     try {
       await push(bookingsRef, data);
       Swal.fire({
