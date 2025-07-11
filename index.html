@@ -38,8 +38,8 @@
     <div class="container d-flex justify-content-between align-items-center">
       <!-- Brand -->
       <a class="navbar-brand d-flex align-items-center flex-shrink-0 text-decoration-none" href="#">
-        <img src="/image.png" alt="HR Taxi Logo" class="logo-img me-3">
-        <div class="d-none d-md-block slogan-text">
+        <img src="/logo.png" alt="HR Taxi Logo" class="logo-img me-3">
+        <div class="d-flex flex-column slogan-text">
           <div>YOUR</div>
           <div>TRUSTED</div>
           <div>RIDE</div>
@@ -80,13 +80,6 @@
 
       <!-- Right section: Dark Mode + WhatsApp -->
       <div class="d-flex align-items-center">
-        <!-- Dark Mode -->
-        <div class="form-check form-switch me-3">
-          <input class="form-check-input" type="checkbox" id="darkModeToggle">
-          <label class="form-check-label text-white" for="darkModeToggle">
-          </label>
-        </div>
-
         <!-- WhatsApp Icon -->
         <a href="https://wa.me/+447447820040" target="_blank" class="btn btn-warning btn-sm"
           style="font-weight: bold; border-radius: 10px;">
@@ -406,68 +399,111 @@
   <!-- Book Now Form Section -->
   <section id="book-now" class="booking-form-section container py-5 px-3 px-md-5 my-5 shadow-lg rounded-4">
     <div class="row justify-content-center">
-      <div class="col-lg-10">
-        <h2 class="text-center mb-4 dark-mode-text">Book Your Ride</h2>
-        <p class="text-center mb-5 dark-mode-muted">
+      <div class="col-lg-10 col-xl-9">
+        <h2 class="text-center mb-2 dark-mode-text">Book Your Ride</h2>
+        <p class="text-center mb-3 dark-mode-muted">
           Fill out the form below to book your taxi. We'll confirm your ride shortly!
         </p>
+        <p class="text-muted text-center mb-4"><span class="text-danger">*</span> Required fields</p>
 
         <form id="bookingForm">
           <div class="row g-4">
-            <div class="col-md-6">
-              <label for="fullName" class="form-label dark-mode-text">Full Name</label>
-              <input type="text" class="form-control dark-mode-input" id="fullName" required>
+            <!-- Full Name -->
+            <div class="col-md-4">
+              <label for="fullName" class="form-label">
+                Full Name <span class="text-danger">*</span>
+              </label>
+              <input type="text" class="form-control" id="fullName" required>
             </div>
 
-            <div class="col-md-6">
-              <label for="phoneNumber" class="form-label">Phone Number</label>
+            <!-- Phone Number -->
+            <div class="col-md-4">
+              <label for="phoneNumber" class="form-label">
+                Phone Number <span class="text-danger">*</span>
+              </label>
               <input type="tel" class="form-control" id="phoneNumber" required>
             </div>
 
-            <div class="col-12">
-              <label for="email" class="form-label">Email Address</label>
+            <!-- Email -->
+            <div class="col-md-4">
+              <label for="email" class="form-label">
+                Email Address <span class="text-danger">*</span>
+              </label>
               <input type="email" class="form-control" id="email" required>
             </div>
 
+            <!-- Pickup Address -->
             <div class="col-md-6">
-              <label for="pickupLocation" class="form-label">
-                Pickup Address <small class="text-muted d-block">Include Door No, Street Name, and Postcode</small>
+              <label for="pickupLocation" class="form-label mb-1">
+                Pickup Address <span class="text-danger">*</span>
               </label>
-              <input type="text" class="form-control" id="pickupLocation" required>
+              <small class="text-muted d-block mb-1">Include Door No, Street Name</small>
+              <input type="text" class="form-control" id="pickupLocation" required pattern="^\s*\d+\s+[A-Za-z].+"
+                title="Please include both a door number and a street name" />
             </div>
 
+            <!-- Pickup Post Code -->
             <div class="col-md-6">
-              <label for="destination" class="form-label">
-                Destination Address <small class="text-muted d-block">Include Door No, Street Name, and Postcode</small>
+              <label for="pickupPostcode" class="form-label mb-1">
+                Pickup Post Code <span class="text-danger">*</span>
               </label>
-              <input type="text" class="form-control" id="destination" required>
+              <small class="invisible d-block mb-1">&nbsp;</small>
+              <input type="text" class="form-control" id="pickupPostcode" required>
             </div>
 
+            <!-- Destination Address -->
             <div class="col-md-6">
-              <label for="pickupDate" class="form-label">Pickup Date</label>
+              <label for="destination" class="form-label mb-1">
+                Destination Address <span class="text-danger">*</span>
+              </label>
+              <small class="text-muted d-block mb-1">Include Door No, Street Name</small>
+              <input type="text" class="form-control" id="destination" required pattern="^\s*\d+\s+[A-Za-z].+"
+                title="Please include both a door number and a street name">
+            </div>
+            <div class="col-md-6">
+              <label for="destinationPostcode" class="form-label mb-1">
+                Destination Post Code <span class="text-danger">*</span>
+              </label>
+              <small class="invisible d-block mb-1">&nbsp;</small>
+              <input type="text" class="form-control" id="destinationPostcode" required>
+            </div>
+            <div class="col-md-4">
+              <label for="pickupDate" class="form-label">
+                Pickup Date <span class="text-danger">*</span>
+              </label>
               <input type="date" class="form-control" id="pickupDate" required>
             </div>
+            <!-- Destination Post Code -->
 
-            <div class="col-md-6">
-              <label for="pickupTime" class="form-label">Pickup Time</label>
+            <!-- Pickup Time -->
+            <div class="col-md-4">
+              <label for="pickupTime" class="form-label">
+                Pickup Time <span class="text-danger">*</span>
+              </label>
               <input type="time" class="form-control" id="pickupTime" required>
             </div>
 
-            <div class="col-md-6">
-              <label for="distance" class="form-label">Distance (in miles)</label>
-              <input type="number" class="form-control" id="distance" step="0.1" min="0">
-            </div>
-            <div class="col-md-6">
-              <label for="passengerCount" class="form-label">Number of Passengers</label>
+            <!-- Passenger Count -->
+            <div class="col-md-4">
+              <label for="passengerCount" class="form-label">
+                Number of Passengers <span class="text-danger">*</span>
+              </label>
               <input type="number" class="form-control" id="passengerCount" min="1" required>
             </div>
-            <div class="col-md-6">
-              <label for="luggageCount" class="form-label">No. of Luggages</label>
+
+            <!-- Luggage Count -->
+            <div class="col-md-4">
+              <label for="luggageCount" class="form-label">
+                No. of Luggages <span class="text-danger">*</span>
+              </label>
               <input type="number" class="form-control" id="luggageCount" min="0" required>
             </div>
 
-            <div class="col-md-6">
-              <label for="vehicleType" class="form-label">Preferred Vehicle Type</label>
+            <!-- Vehicle Type -->
+            <div class="col-md-4">
+              <label for="vehicleType" class="form-label">
+                Preferred Vehicle Type <span class="text-danger">*</span>
+              </label>
               <select class="form-select" id="vehicleType" required>
                 <option selected disabled value="">Choose...</option>
                 <option>Saloon</option>
@@ -477,11 +513,19 @@
               </select>
             </div>
 
+            <!-- Distance (optional) -->
+            <div class="col-md-4">
+              <label for="distance" class="form-label">Distance (in miles)</label>
+              <input type="number" class="form-control" id="distance" step="0.1" min="0">
+            </div>
+
+            <!-- Additional Notes (optional) -->
             <div class="col-12">
               <label for="specialInstructions" class="form-label">Additional Notes</label>
               <textarea class="form-control" id="specialInstructions" rows="3"></textarea>
             </div>
 
+            <!-- Submit -->
             <div class="col-12 text-center mt-4">
               <button type="submit" class="btn btn-primary btn-lg px-5">Submit</button>
             </div>
@@ -490,6 +534,8 @@
       </div>
     </div>
   </section>
+
+
 
   <div class="container">
     <div
@@ -508,9 +554,9 @@
 
         <!-- About & Slogan -->
         <div class="col-md-4 text-center">
-          <img src="/image.png" alt="HR Taxi Logo" class="big-logo mb-2">
+          <img src="/logo.png" alt="HR Taxi Logo" class="big-logo mb-2">
           <p>Your trusted ride partner for reliable and comfortable taxi rides — 24/7 across the city.</p>
-          <p><em>“Your trusted Ride every time”</em></p>
+          <p><em>“Your Trusted Ride Every Time”</em></p>
         </div>
 
 
