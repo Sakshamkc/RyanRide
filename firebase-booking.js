@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
       luggageCount: document.getElementById("luggageCount").value,
       vehicleType: document.getElementById("vehicleType").value,
       serviceType: document.getElementById("serviceType").value,
-      distance: document.getElementById("distance")?.value || "",
       specialInstructions: document.getElementById("specialInstructions").value,
       needReturnJourney: document.getElementById("needReturnJourney").checked ? "Yes" : "No"
     };
