@@ -65,7 +65,7 @@
             <a class="nav-link" href="#services">Services</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#fleet">Fleet</a>
+            <a class="nav-link" href="#fleet">Our Fleet</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#why-us">Features</a>
@@ -522,7 +522,7 @@
         <form id="bookingForm">
           <div class="row g-4">
             <!-- Full Name -->
-            <div class="col-md-4">
+            <div class="col-md-4" data-city-visible>
               <label for="fullName" class="form-label">
                 Full Name <span class="text-danger">*</span>
               </label>
@@ -530,7 +530,7 @@
             </div>
 
             <!-- Phone Number -->
-            <div class="col-md-4">
+            <div class="col-md-4" data-city-visible>
               <label for="phoneNumber" class="form-label">
                 Phone Number <span class="text-danger">*</span>
               </label>
@@ -538,13 +538,13 @@
             </div>
 
             <!-- Email -->
-            <div class="col-md-4">
+            <div class="col-md-4" data-city-visible>
               <label for="email" class="form-label">
                 Email Address <span class="text-danger">*</span>
               </label>
               <input type="email" class="form-control" id="email" placeholder="Enter your email address" required>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" data-city-visible>
               <label for="serviceType" class="form-label">
                 Select a Service <span class="text-danger">*</span>
               </label>
@@ -555,7 +555,7 @@
                 <option>City Transfers</option>
               </select>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" data-city-visible>
               <label for="vehicleType" class="form-label">
                 Select a Vehicle<span class="text-danger">*</span>
               </label>
@@ -568,7 +568,7 @@
               </select>
             </div>
             <!-- Pickup Address -->
-            <div class="col-md-6">
+            <div class="col-md-6" data-city-visible>
               <label for="pickupLocation" class="form-label mb-1">
                 Pickup Address <span class="text-danger">*</span>
               </label>
@@ -589,7 +589,7 @@
             </div>
 
             <!-- Destination Address -->
-            <div class="col-md-6">
+            <div class="col-md-6" data-city-visible>
               <label for="destination" class="form-label mb-1">
                 Destination Address <span class="text-danger">*</span>
               </label>
@@ -652,10 +652,120 @@
             </div>
 
             <!-- Submit -->
+            <div class="col-12 mt-4" data-city-visible>
+              <button type="submit" class="btn btn-warning btn-lg px-5">Submit</button>
+            </div>
+          </div>
+          <!-- Airport Transfers Fields -->
+          <div id="airportFields" class="row g-4 d-none">
+            <!-- Airport -->
+            <div class="col-md-6">
+              <label for="airportName" class="form-label">Airport <span class="text-danger">*</span></label>
+              <select class="form-select" id="airportName">
+                <option disabled selected value="">Select Airport</option>
+                <option>London Heathrow Airport (LHR)</option>
+                <option>London Gatwick Airport (LGW)</option>
+                <option>London Stansted Airport (STN)</option>
+              </select>
+            </div>
+
+            <!-- Terminal -->
+            <div class="col-md-6">
+              <label for="terminal" class="form-label">Terminal <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="terminal" placeholder="Enter terminal (e.g. 2)">
+            </div>
+
+            <!-- Flight No -->
+            <div class="col-md-6">
+              <label for="flightNumber" class="form-label">Flight No. <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="flightNumber" placeholder="e.g. LH2486">
+            </div>
+
+            <!-- Arriving From -->
+            <div class="col-md-6">
+              <label for="arrivingFrom" class="form-label">Arriving From <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="arrivingFrom" placeholder="e.g. Munich">
+            </div>
+
+            <!-- Pick Me After -->
+            <div class="col-md-6">
+              <label for="pickMeAfter" class="form-label">Pick Me After (minutes) <span
+                  class="text-danger">*</span></label>
+              <input type="number" class="form-control" id="pickMeAfter" min="0" placeholder="e.g. 20">
+            </div>
+
+            <!-- Drop Off Address -->
+            <div class="col-md-6">
+              <label for="dropoffAddress" class="form-label">Drop-Off Address <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="dropoffAddress"
+                placeholder="14 Langley Dr, Camberley GU15 3TB, UK">
+            </div>
+
+            <!-- Door No -->
+            <div class="col-md-6">
+              <label for="doorNo" class="form-label">Door No. <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="doorNo" placeholder="e.g. 14">
+            </div>
+            <!-- Passenger Details -->
+            <div class="col-12">
+              <h5 class="mt-3">Passenger Details</h5>
+            </div>
+
+            <div class="col-md-4">
+              <label for="airportPassengerName" class="form-label">Passenger Name <span
+                  class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="airportPassengerName" placeholder="e.g. David Morris">
+            </div>
+
+            <div class="col-md-4">
+              <label for="airportEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="airportEmail" placeholder="e.g. david@example.com">
+            </div>
+
+            <div class="col-md-4">
+              <label for="airportContact" class="form-label">Contact Number <span class="text-danger">*</span></label>
+              <input type="tel" class="form-control" id="airportContact" placeholder="e.g. +447800000000">
+            </div>
+
+            <!-- Vehicle Details -->
+            <div class="col-12">
+              <h5 class="mt-4">Vehicle Details</h5>
+            </div>
+
+            <div class="col-md-4">
+              <label for="airportVehicle" class="form-label">Vehicle <span class="text-danger">*</span></label>
+              <select id="airportVehicle" class="form-select">
+                <option selected disabled value="">Select vehicle</option>
+                <option>Saloon</option>
+                <option>Executive</option>
+                <option>MPV</option>
+                <option>Mini Bus (8 Seater)</option>
+              </select>
+            </div>
+
+            <div class="col-md-4">
+              <label for="airportPassengers" class="form-label">Passengers <span class="text-danger">*</span></label>
+              <input type="number" class="form-control" id="airportPassengers" min="1" value="1">
+            </div>
+
+            <div class="col-md-4">
+              <label for="airportSmallLuggage" class="form-label">Small Luggage <span
+                  class="text-danger">*</span></label>
+              <input type="number" class="form-control" id="airportSmallLuggage" min="0">
+            </div>
+
+            <div class="col-md-4">
+              <label for="airportLargeLuggage" class="form-label">Large Luggage <span
+                  class="text-danger">*</span></label>
+              <input type="number" class="form-control" id="airportLargeLuggage" min="0">
+            </div>
+
             <div class="col-12 mt-4">
               <button type="submit" class="btn btn-warning btn-lg px-5">Submit</button>
             </div>
           </div>
+
+
         </form>
       </div>
     </div>

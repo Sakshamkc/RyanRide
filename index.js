@@ -1,4 +1,3 @@
-// JavaScript for Dark Mode Toggle
 document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
@@ -20,4 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
 });
