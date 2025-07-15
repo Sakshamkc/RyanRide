@@ -27,11 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const allCols = bookingForm.querySelectorAll('.row.g-4 > [class*="col-"]');
 
   // Save original required fields
-  bookingForm.querySelectorAll('input, select, textarea').forEach(el => {
-    if (el.hasAttribute('required')) {
-      el.dataset.originalRequired = 'true';
-    }
-  });
+ bookingForm.querySelectorAll('input, select, textarea').forEach(el => {
+  el.removeAttribute('required');
+});
 
   // Toggle field visibility and requirements
   function updateFieldVisibility() {
@@ -65,15 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       col.classList.toggle('d-none', !shouldShow);
 
-      if (input) {
-        if (shouldRequire) {
-          input.setAttribute('required', 'required');
-          asterisk?.classList.remove('d-none');
-        } else {
-          input.removeAttribute('required');
-          asterisk?.classList.add('d-none');
-        }
-      }
+      if (asterisk) asterisk.classList.add('d-none');
     });
 
     airportFields.classList.toggle('d-none', !isAirport);
