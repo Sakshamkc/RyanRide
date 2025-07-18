@@ -586,3 +586,22 @@
           object-fit: cover;
           width: 100%;
         }
+
+        /* Desktop height */
+        .service-area-slide .carousel-bg {
+          height: 650px;
+        }
+
+        /* Tablet view */
+        @media (max-width: 992px) {
+          .service-area-slide .carousel-bg {
+            height: 450px;
+          }
+        }
+
+        /* Mobile view */
+        @media (max-width: 576px) {
+          .service-area-slide .carousel-bg {
+            height: 320px;
+          }
+        }
