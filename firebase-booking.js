@@ -105,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
       data = {
         ...data,
         airportName: document.getElementById("airportName").value,
-        terminal: document.getElementById("terminal").value,
         flightNumber: document.getElementById("flightNumber").value,
         arrivingFrom: document.getElementById("arrivingFrom").value,
         pickMeAfter: document.getElementById("pickMeAfter").value,
