@@ -576,9 +576,9 @@
             <!-- Full Name -->
             <div class="col-md-4" data-city-visible>
               <label for="fullName" class="form-label">
-                Full Name <span class="text-danger d-none">*</span>
+                Name <span class="text-danger d-none">*</span>
               </label>
-              <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" />
+              <input type="text" class="form-control" id="fullName" placeholder="Enter your name" />
             </div>
 
             <!-- Phone Number -->
@@ -622,33 +622,25 @@
                 <option>Mini Bus(8 Seater)</option>
               </select>
             </div>
-            <!-- Pickup Address -->
             <div class="col-md-6" data-city-visible>
-              <label for="pickupLocation" class="form-label mb-1">
-                Pickup Address <span class="text-danger d-none">*</span>
-              </label>
-              <small class="text-muted d-block mb-1">Include Door No, Street Name</small>
-              <input type="text" class="form-control" id="pickupLocation" placeholder="📍 Enter your pickup location" />
-            </div>
-
-            <!-- Pickup Post Code -->
-            <div class="col-md-6">
               <label for="pickupPostcode" class="form-label mb-1">
                 Pickup Post Code <span class="text-danger d-none">*</span>
               </label>
               <small class="invisible d-block mb-1">&nbsp;</small>
               <input type="text" class="form-control" id="pickupPostcode" placeholder="Enter your pickup post code" />
             </div>
-
-            <!-- Destination Address -->
+            <!-- Pickup Address -->
             <div class="col-md-6" data-city-visible>
-              <label for="destination" class="form-label mb-1">
-                Destination Address <span class="text-danger d-none">*</span>
+              <label for="pickupLocation" class="form-label mb-1">
+                Pickup Address <span class="text-danger d-none">*</span>
               </label>
               <small class="text-muted d-block mb-1">Include Door No, Street Name</small>
-              <input type="text" class="form-control" id="destination" placeholder="📍 Enter your drop-off location" />
+              <input type="text" class="form-control" id="pickupLocation" placeholder="📍 Enter your pickup location"
+                readonly />
             </div>
-            <div class="col-md-6">
+
+            <!-- Pickup Post Code -->
+            <div class="col-md-6" data-city-visible>
               <label for="destinationPostcode" class="form-label mb-1">
                 Destination Post Code
                 <span class="text-danger d-none">*</span>
@@ -657,6 +649,17 @@
               <input type="text" class="form-control" id="destinationPostcode"
                 placeholder="Enter your destination post code" />
             </div>
+
+            <!-- Destination Address -->
+            <div class="col-md-6" data-city-visible>
+              <label for="destination" class="form-label mb-1">
+                Destination Address <span class="text-danger d-none">*</span>
+              </label>
+              <small class="text-muted d-block mb-1">Include Door No, Street Name</small>
+              <input type="text" class="form-control" id="destination" placeholder="📍 Enter your drop-off location"
+                readonly />
+            </div>
+
             <!-- Passenger Count -->
             <div class="col-md-6">
               <label for="passengerCount" class="form-label">
@@ -719,8 +722,28 @@
                 <option>London Heathrow Airport (LHR)</option>
                 <option>London Gatwick Airport (LGW)</option>
                 <option>London Stansted Airport (STN)</option>
+                <option>London Luton Airport (LTN)</option>
+                <option>London City Airport (LCY)</option>
+                <option>Manchester Airport (MAN)</option>
+                <option>Birmingham Airport (BHX)</option>
+                <option>Glasgow Airport (GLA)</option>
+                <option>Edinburgh Airport (EDI)</option>
+                <option>Newcastle International Airport (NCL)</option>
+                <option>Bristol Airport (BRS)</option>
+                <option>East Midlands Airport (EMA)</option>
+                <option>Leeds Bradford Airport (LBA)</option>
+                <option>Liverpool John Lennon Airport (LPL)</option>
+                <option>Belfast International Airport (BFS)</option>
+                <option>Belfast City Airport (BHD)</option>
+                <option>Southampton Airport (SOU)</option>
+                <option>Aberdeen Airport (ABZ)</option>
+                <option>Inverness Airport (INV)</option>
+                <option>Cardiff Airport (CWL)</option>
+                <option>London Southend Airport (SEN)</option>
+                <option>Doncaster Sheffield Airport (DSA)</option>
               </select>
             </div>
+
 
             <!-- Terminal -->
             <div class="col-md-6">
