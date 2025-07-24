@@ -149,7 +149,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const bookingsRef = ref(database, 'bookings');
       await push(bookingsRef, data);
 
-      await emailjs.send("service_tqf4jxm", "template_vvjgtxm", data, "ov9kTwusFdsoxTnHL");
+      await emailjs.send("service_tqf4jxm", "template_vvjgtxm", {
+  ...data,
+  to_email: "booking@hrtaxi.co.uk, Bookingshrtaxi@gmail.com,Hrtaxi25@gmail.com"
+}, "ov9kTwusFdsoxTnHL");
+
 
       Swal.fire({
         icon: 'success',
