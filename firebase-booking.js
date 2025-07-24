@@ -27,9 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const allCols = bookingForm.querySelectorAll('.row.g-4 > [class*="col-"]');
 
   // Save original required fields
- bookingForm.querySelectorAll('input, select, textarea').forEach(el => {
-  el.removeAttribute('required');
-});
+  bookingForm.querySelectorAll('input, select, textarea').forEach(el => {
+    el.removeAttribute('required');
+  });
 
   // Toggle field visibility and requirements
   function updateFieldVisibility() {
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
       Swal.fire({
         icon: 'success',
         title: 'Booking Submitted!',
-        text: 'Thank you for booking with RyanRide. We will confirm your ride shortly.',
+        text: 'Thank you for booking with HR Taxi. We will confirm your ride shortly.',
         confirmButtonColor: '#3085d6',
         confirmButtonText: 'OK'
       });
@@ -175,35 +175,35 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.innerText = "Submit";
   });
   updateFieldVisibility();
-  
+
   emailjs.init("ov9kTwusFdsoxTnHL");
-    const formm = document.getElementById("subscribe-form");
+  const formm = document.getElementById("subscribe-form");
 
-    if (!formm) {
-      console.error("Form with ID 'subscribe-form' not found.");
-      return;
-    }
-    
-    formm.addEventListener("submit", function (event) {
-      event.preventDefault();
+  if (!formm) {
+    console.error("Form with ID 'subscribe-form' not found.");
+    return;
+  }
 
-      emailjs.sendForm("service_tqf4jxm", "template_2b8bnm7", this)
-        .then(function () {
-          Swal.fire({
-            icon: 'success',
-            title: 'Subscribed!',
-            text: 'Thank you for subscribing to our newsletter.',
-            confirmButtonColor: '#3085d6',
-            confirmButtonText: 'OK'
-          });
-          formm.reset();
-        }, function (error) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Subscription Failed',
-            text: `Error: ${error.message}`,
-          });
-          formm.reset();
+  formm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    emailjs.sendForm("service_tqf4jxm", "template_2b8bnm7", this)
+      .then(function () {
+        Swal.fire({
+          icon: 'success',
+          title: 'Subscribed!',
+          text: 'Thank you for subscribing to our newsletter.',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'OK'
         });
-    });
+        formm.reset();
+      }, function (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Subscription Failed',
+          text: `Error: ${error.message}`,
+        });
+        formm.reset();
+      });
+  });
 });
