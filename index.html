@@ -29,6 +29,11 @@
       type="text/javascript"
       src="https://cdn.emailjs.com/dist/email.min.js"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   </head>
 
   <body>
@@ -912,7 +917,12 @@
                 <label for="pickupDate" class="form-label">
                   Date <span class="text-danger d-none">*</span>
                 </label>
-                <input type="date" class="form-control" id="pickupDate" />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pickupDate"
+                  placeholder="Select date"
+                />
               </div>
 
               <!-- Pickup Time -->
@@ -920,7 +930,12 @@
                 <label for="pickupTime" class="form-label">
                   Time <span class="text-danger d-none">*</span>
                 </label>
-                <input type="time" class="form-control" id="pickupTime" />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pickupTime"
+                  placeholder="Select time"
+                />
               </div>
               <div class="col-md-4 d-flex align-items-end">
                 <div class="form-check">
