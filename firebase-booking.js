@@ -78,25 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const pickupVal = document.getElementById("pickupLocation")?.value.trim() || "";
     const destinationVal = document.getElementById("destination")?.value.trim() || "";
-    const pickupPostcode = document.getElementById("pickupPostcode")?.value.trim() || "";
-    const destinationPostcode = document.getElementById("destinationPostcode")?.value.trim() || "";
-    const postcodeRegex = /^[A-Z]{1,2}\d{1,2}[A-Z]?\s?\d[A-Z]{2}$/i;
-    const serviceTypeValue = serviceType.value;
-
-    if (serviceTypeValue !== "City Transfers" && serviceTypeValue !== "Airport Transfers") {
-      const pickupValid = postcodeRegex.test(pickupPostcode);
-      const destinationValid = postcodeRegex.test(destinationPostcode);
-
-      if (!pickupValid || !destinationValid) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Invalid Postcode',
-          text: 'Please enter valid postcodes for both Pickup and Destination.',
-          confirmButtonColor: '#d33'
-        });
-        return;
-      }
-    }
+    const serviceTypeValue = serviceType.value;    
 
     // Build data object depending on service type
     let data = { serviceType: serviceTypeValue };
@@ -128,9 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
         phoneNumber: document.getElementById("phoneNumber").value,
         email: document.getElementById("email").value,
         pickupLocation: pickupVal,
-        pickupPostcode: pickupPostcode,
         destination: destinationVal,
-        destinationPostcode: destinationPostcode,
         pickupDate: document.getElementById("pickupDate").value,
         pickupTime: document.getElementById("pickupTime").value,
         passengerCount: document.getElementById("passengerCount").value,
