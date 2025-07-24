@@ -180,27 +180,22 @@ document.addEventListener("DOMContentLoaded", () => {
   updateFieldVisibility();
 
   emailjs.init("ov9kTwusFdsoxTnHL");
-  const formm = document.getElementById("subscribe-form");
 
-  if (!formm) {
-    console.error("Form with ID 'subscribe-form' not found.");
-    return;
-  }
+const formm = document.getElementById("subscribe-form");
 
+if (formm) {
   formm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    emailjs.sendForm("service_tqf4jxm", "template_2b8bnm7", this)
-      .then(function () {
+    emailjs.sendForm("service_tqf4jxm", "template_2b8bnm7", formm)
+      .then(() => {
         Swal.fire({
           icon: 'success',
           title: 'Subscribed!',
           text: 'Thank you for subscribing to our newsletter.',
-          confirmButtonColor: '#3085d6',
-          confirmButtonText: 'OK'
         });
         formm.reset();
-      }, function (error) {
+      }, (error) => {
         Swal.fire({
           icon: 'error',
           title: 'Subscription Failed',
@@ -209,4 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
         formm.reset();
       });
   });
+}
+
+
 });
