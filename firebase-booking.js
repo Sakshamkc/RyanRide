@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formm.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      emailjs.sendForm("service_i2n9bqa", "template_kfub3tp", formm)
+      emailjs.sendForm("service_i2n9bqa", "template_lqrwjza", formm)
         .then(() => {
           Swal.fire({
             icon: 'success',
