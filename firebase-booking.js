@@ -1,6 +1,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
 
+emailjs.init({
+  publicKey: "OkR6Uv_1oi2Q7GWUW",
+});
 // Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyCHeYud47nrDlGud5k0Wd8LeBxqWjGqkn4",
@@ -78,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const pickupVal = document.getElementById("pickupLocation")?.value.trim() || "";
     const destinationVal = document.getElementById("destination")?.value.trim() || "";
-    const serviceTypeValue = serviceType.value;    
+    const serviceTypeValue = serviceType.value;
 
     // Build data object depending on service type
     let data = { serviceType: serviceTypeValue };
@@ -129,10 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const bookingsRef = ref(database, 'bookings');
       await push(bookingsRef, data);
 
-      await emailjs.send("service_tqf4jxm", "template_vvjgtxm", {
-  ...data,
-  to_email: "booking@hrtaxi.co.uk, Bookingshrtaxi@gmail.com,Hrtaxi25@gmail.com"
-}, "ov9kTwusFdsoxTnHL");
+      await emailjs.send("service_i2n9bqa", "template_kfub3tp", {
+        ...data
+      }, "OkR6Uv_1oi2Q7GWUW");
 
 
       Swal.fire({
@@ -159,32 +161,32 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   updateFieldVisibility();
 
-  emailjs.init("ov9kTwusFdsoxTnHL");
+  emailjs.init("OkR6Uv_1oi2Q7GWUW");
 
-const formm = document.getElementById("subscribe-form");
+  const formm = document.getElementById("subscribe-form");
 
-if (formm) {
-  formm.addEventListener("submit", function (event) {
-    event.preventDefault();
+  if (formm) {
+    formm.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    emailjs.sendForm("service_tqf4jxm", "template_2b8bnm7", formm)
-      .then(() => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Subscribed!',
-          text: 'Thank you for subscribing to our newsletter.',
+      emailjs.sendForm("service_i2n9bqa", "template_kfub3tp", formm)
+        .then(() => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Subscribed!',
+            text: 'Thank you for subscribing to our newsletter.',
+          });
+          formm.reset();
+        }, (error) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Subscription Failed',
+            text: `Error: ${error.message}`,
+          });
+          formm.reset();
         });
-        formm.reset();
-      }, (error) => {
-        Swal.fire({
-          icon: 'error',
-          title: 'Subscription Failed',
-          text: `Error: ${error.message}`,
-        });
-        formm.reset();
-      });
-  });
-}
+    });
+  }
 
 
 });
