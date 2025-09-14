@@ -1,26 +1,41 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+// Initialize Email.js (do this once, at top)
+emailjs.init("OkR6Uv_1oi2Q7GWUW");
 
-emailjs.init({
-  publicKey: "OkR6Uv_1oi2Q7GWUW",
-});
-// Firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyCHeYud47nrDlGud5k0Wd8LeBxqWjGqkn4",
-  authDomain: "ryanride-308a0.firebaseapp.com",
-  databaseURL: "https://ryanride-308a0-default-rtdb.firebaseio.com/",
-  projectId: "ryanride-308a0",
-  storageBucket: "ryanride-308a0.appspot.com",
-  messagingSenderId: "239832475883",
-  appId: "1:239832475883:web:b33c2520bdbf0c3447f6ae"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-
-// Booking form logic
 document.addEventListener("DOMContentLoaded", () => {
+  // NAV ACTIVE LINK ON SCROLL
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - 100;
+      if (scrollY >= sectionTop) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+
+  // COLLAPSE NAVBAR ON LINK CLICK
+  document.querySelectorAll('.navbar-collapse .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      if (navbarCollapse.classList.contains('show')) {
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+        bsCollapse.hide();
+      }
+    });
+  });
+
+  // Booking Form Logic
   const form = document.querySelector(".booking-form-section form");
   if (!form) return;
 
@@ -31,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Save original required fields
   bookingForm.querySelectorAll('input, select, textarea').forEach(el => {
+    el.setAttribute('data-original-required', el.hasAttribute('required'));
     el.removeAttribute('required');
   });
 
@@ -66,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       col.classList.toggle('d-none', !shouldShow);
 
-      if (asterisk) asterisk.classList.add('d-none');
+      if (asterisk) asterisk.classList.toggle('d-none', !shouldRequire);
     });
 
     airportFields.classList.toggle('d-none', !isAirport);
@@ -129,13 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.innerText = "Submitting...";
 
     try {
-      const bookingsRef = ref(database, 'bookings');
-      await push(bookingsRef, data);
-
-      await emailjs.send("service_i2n9bqa", "template_kfub3tp", {
-        ...data
-      }, "OkR6Uv_1oi2Q7GWUW");
-
+      // ✅ ONLY EMAIL.JS USED NOW — NO FIREBASE!
+      await emailjs.send("service_i2n9bqa", "template_kfub3tp", data);
 
       Swal.fire({
         icon: 'success',
@@ -159,34 +170,31 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.disabled = false;
     submitBtn.innerText = "Submit";
   });
+
   updateFieldVisibility();
 
-  emailjs.init("OkR6Uv_1oi2Q7GWUW");
-
-  const formm = document.getElementById("subscribe-form");
-
-  if (formm) {
-    formm.addEventListener("submit", function (event) {
+  // Newsletter Subscription Form
+  const subscribeForm = document.getElementById("subscribe-form");
+  if (subscribeForm) {
+    subscribeForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      emailjs.sendForm("service_i2n9bqa", "template_lqrwjza", formm)
+      emailjs.sendForm("service_i2n9bqa", "template_lqrwjza", subscribeForm)
         .then(() => {
           Swal.fire({
             icon: 'success',
             title: 'Subscribed!',
             text: 'Thank you for subscribing to our newsletter.',
           });
-          formm.reset();
+          subscribeForm.reset();
         }, (error) => {
           Swal.fire({
             icon: 'error',
             title: 'Subscription Failed',
             text: `Error: ${error.message}`,
           });
-          formm.reset();
+          subscribeForm.reset();
         });
     });
   }
-
-
 });

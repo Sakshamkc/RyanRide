@@ -30,16 +30,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 bsCollapse.hide();
             }
         });
-    });   
+    });
 
     flatpickr("#pickupDate", {
-    dateFormat: "Y-m-d",
-    minDate: "today"
-  });
-  flatpickr("#pickupTime", {
-    enableTime: true,
-    noCalendar: true,
-    dateFormat: "H:i", // 24-hour format. Use "h:i K" for 12-hour + AM/PM
-    time_24hr: true,
-  });
+        dateFormat: "Y-m-d",
+        minDate: "today"
+    });
+    flatpickr("#pickupTime", {
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i", // 24-hour format. Use "h:i K" for 12-hour + AM/PM
+        time_24hr: true,
+    });
 });
