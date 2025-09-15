@@ -82,7 +82,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
       col.classList.toggle('d-none', !shouldShow);
 
-      if (asterisk) asterisk.classList.toggle('d-none', !shouldRequire);
+      if (input) {
+        if (shouldRequire) {
+          input.setAttribute('required', 'true');
+        } else {
+          input.removeAttribute('required');
+        }
+      }
+
+      if (asterisk) {
+        asterisk.classList.toggle('d-none', !shouldRequire);
+      }
+
     });
 
     airportFields.classList.toggle('d-none', !isAirport);
@@ -145,7 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.innerText = "Submitting...";
 
     try {
-      // ✅ ONLY EMAIL.JS USED NOW — NO FIREBASE!
       await emailjs.send("service_i2n9bqa", "template_kfub3tp", data);
 
       Swal.fire({
