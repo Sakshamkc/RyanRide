@@ -313,6 +313,44 @@
           justify-content: center;
           transition: transform 0.3s ease-in-out, background-color 0.3s;
         }
+        /* Style for HR TAXI brand name */
+	/* Style for HR TAXI brand name (outside the box) */
+	/* HR TAXI Brand Container */
+/* HR TAXI Brand Container */
+.hr-taxi-brand-container {
+  position: absolute;
+  top: 120px;
+  left: 50%;          /* Center horizontally */
+  transform: translateX(-50%);  /* Truly center the text */
+  z-index: 15;
+  font-size: 3rem;     /* Make it larger */
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #2c2c2c;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: center;  /* Center content inside container */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hr-taxi-brand-container {
+    font-size: 2rem;
+    top: 15px;
+    left: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hr-taxi-brand-container {
+    font-size: 2rem;
+    top: 100px;
+    left: 200px;
+  }
+}
         .call-float {
   position: fixed;
   width: 60px;
