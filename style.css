@@ -15,14 +15,12 @@
           margin-bottom: 30px;
           border-radius: 0 0 15px 15px;
           overflow: hidden;
-          /* Ensures rounded corners apply to carousel content */
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-          /* More prominent shadow */
         }
 
         .carousel-bg {
           position: relative;
-          height: 600px;
+          height: 100vh;
           background-size: cover;
           background-position: center;
         }
@@ -43,18 +41,97 @@
           left: 50%;
           transform: translate(-50%, -50%);
           z-index: 2;
+          width: 90%;
+          max-width: 700px;
+          text-align: center;
           color: #fff;
-          padding: 0 20px;
+          padding: 20px;
+          border-radius: 15px;
+        }
+
+        .area-card {
+          background: rgba(255, 255, 255, 0.95);
+          color: #1a202c;
+          border-radius: 12px;
+          padding: 20px;
+          margin-top: 20px;
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+          text-align: center;
+        }
+
+        .area-card h5 {
+          font-weight: bold;
+          font-size: 1.4rem;
+          margin-bottom: 10px;
+        }
+
+        .area-card p {
+          font-size: 0.95rem;
+          line-height: 1.6;
+          margin-bottom: 0;
+        }
+
+        /* List styling */
+        .area-card p {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 0.5rem 1rem;
+        }
+
+        /* Responsive Text Sizes */
+        .carousel-caption h5 {
+          font-size: 1.8rem;
+          margin-bottom: 1.5rem;
         }
 
         @media (max-width: 768px) {
-          .carousel-caption h2 {
-            font-size: 2rem;
+          .carousel-caption h5 {
+            font-size: 1.5rem;
           }
 
-          .carousel-caption p {
-            font-size: 1rem;
+          .area-list li {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
           }
+
+          .carousel-caption .bg-dark {
+            padding: 1.2rem;
+          }
+        }
+
+        @media (max-width: 576px) {
+          .carousel-caption h5 {
+            font-size: 1.4rem;
+          }
+
+          .area-list li {
+            font-size: 0.9rem;
+            line-height: 1.4;
+          }
+
+          .hero-btn {
+            width: 100%;
+            margin-bottom: 0.5rem;
+            padding: 0.7rem 1rem;
+            font-size: 0.95rem;
+          }
+
+          .carousel-caption .container {
+            max-width: 100%;
+          }
+        }
+
+        .hero-btn {
+          transition: all 0.3s ease;
+          padding: 0.8rem 1.5rem;
+          border-radius: 50px;
+        }
+
+        .hero-btn:hover {
+          transform: translateY(-3px) scale(1.05);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         @keyframes fadeIn {
@@ -237,6 +314,27 @@
           transition: transform 0.3s ease-in-out, background-color 0.3s;
         }
 
+        .area-list li {
+          transition: transform 0.3s ease, color 0.3s ease;
+          cursor: pointer;
+        }
+
+        .area-list li:hover {
+          transform: scale(1.05);
+          color: #ffc107;
+          /* bright gold for hover */
+        }
+
+        /* Buttons hover effect */
+        .hero-btn {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-btn:hover {
+          transform: translateY(-3px) scale(1.05);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
         .whatsapp-float:hover {
           transform: scale(1.1);
           background-color: #128C7E;
@@ -403,6 +501,45 @@
 
         /* Responsive testimonial box spacing */
         @media (max-width: 576px) {
+          .carousel-caption .container {
+            padding-left: 0;
+            padding-right: 0;
+          }
+
+          .carousel-caption .row {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+          }
+
+          .carousel-caption .col-6,
+          .carousel-caption .col-md-3 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 0.75rem;
+          }
+
+          /* Fix icon alignment and spacing */
+          .area-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            color: white;
+          }
+
+          .area-list li i {
+            width: 16px;
+            /* Ensures consistent icon size */
+          }
+
+
+          .area-list {
+            margin-top: 1rem;
+          }
+
           #testimonials .testimonial-box {
             padding: 1.5rem;
           }
@@ -508,6 +645,30 @@
 
         /* Basic Responsiveness */
         @media (max-width: 600px) {
+          .carousel-caption .bg-dark {
+            padding: 1.5rem 1rem;
+          }
+
+          .area-list li {
+            font-size: 0.85rem;
+          }
+
+          .hero-btn {
+            width: 100%;
+            margin-bottom: 0.5rem;
+          }
+
+          .carousel-caption .container .row {
+            justify-content: center;
+          }
+
+          .carousel-caption .container .col-6 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: center;
+            margin-bottom: 0.75rem;
+          }
+
           .testimonials-section {
             padding: 20px;
             width: 95%;
@@ -530,6 +691,25 @@
 
 
         @media (max-width: 576px) {
+          .carousel-caption .bg-dark {
+            padding: 1rem 0.8rem;
+          }
+
+          .area-list li {
+            font-size: 0.8rem;
+            line-height: 1.4;
+          }
+
+          .carousel-caption h5 {
+            font-size: 1.4rem;
+          }
+
+          .hero-btn {
+            width: 100%;
+            margin-bottom: 0.5rem;
+            padding: 0.7rem 1rem;
+            font-size: 0.95rem;
+          }
 
           input[type="date"],
           input[type="time"] {
@@ -540,6 +720,18 @@
 
         /* Responsive adjustments for the floating button */
         @media (max-width: 768px) {
+          .carousel-caption {
+            padding: 15px;
+          }
+
+          .area-card h5 {
+            font-size: 1.2rem;
+          }
+
+          .area-card p {
+            font-size: 0.9rem;
+          }
+
           .whatsapp-float {
             width: 50px;
             height: 50px;
@@ -601,6 +793,20 @@
 
         /* Mobile view */
         @media (max-width: 576px) {
+          .carousel-caption {
+            width: 95%;
+            padding: 10px;
+          }
+
+          .area-card h5 {
+            font-size: 1.1rem;
+          }
+
+          .area-card p {
+            font-size: 0.85rem;
+            line-height: 1.4;
+          }
+
           .service-area-slide .carousel-bg {
             height: 320px;
           }
