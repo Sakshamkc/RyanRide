@@ -75,11 +75,8 @@
         >
           <img src="/logo.png" alt="HR Taxi Logo" class="logo-img me-3" />
           <div class="d-flex flex-column slogan-text">
-            <div>YOUR</div>
-            <div>TRUSTED</div>
-            <div>Taxi</div>
-            <div>NEAR</div>
-            <div>YOU</div>
+            <div>YOUR TRUSTED</div>
+            <div>Taxi Near You</div>
           </div>
         </a>
         <!-- Toggle button for mobile -->
@@ -124,19 +121,6 @@
             </li>
           </ul>
         </div>
-
-        <!-- Right section: Dark Mode + WhatsApp -->
-        <div class="d-flex align-items-center">
-          <!-- WhatsApp Icon -->
-          <a
-            href="https://wa.me/+447447820040?text=Hello%2C%20I%20would%20like%20to%20book%20a%20taxi."
-            target="_blank"
-            class="btn btn-warning btn-sm"
-            style="font-weight: bold; border-radius: 10px"
-          >
-            <i class="fab fa-whatsapp me-1"></i> WhatsApp
-          </a>
-        </div>
       </div>
     </nav>
 
@@ -144,94 +128,66 @@
     <section id="home" class="hero-carousel-container">
       <div class="carousel-item active">
         <div
-          class="carousel-bg"
-          style="
-            background-image: url('/image.jpeg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-          "
+          class="carousel-bg d-flex justify-content-center align-items-center"
+          style="background-color: #f8f9fa; height: 100vh"
         >
-          <div class="carousel-overlay"></div>
+          <!-- Removed overlay -->
 
-          <!-- Semi-transparent content box -->
+          <!-- Content box -->
           <div
-            class="carousel-caption d-flex justify-content-center align-items-center h-100"
+            class="bg-white text-dark p-4 rounded shadow-lg w-60 mx-3"
+            style="max-width: 1000px"
           >
-            <div
-              class="bg-dark bg-opacity-75 text-white p-4 rounded shadow-lg w-60 mx-3"
-              style="max-width: 1000px"
-            >
-              <!-- Heading -->
-              <h5
-                class="fw-bold text-uppercase mb-3 display-6 text-center;"
-                style="font-size: 1.25rem"
-              >
-                HR Taxi offers you comfy and reliable Taxi Services near you. We
-                do all airport, Local and Long distance transfers in competitive
-                fare. Our service areas:
-              </h5>
+            <!-- Heading -->
+            <h5 class="fw-bold mb-3 text-center areas-text">
+              HR Taxi offers you comfy and reliable Taxi Services near you. We
+              do all airport, Local and Long distance transfers in competitive
+              fare. Our service areas:
+            </h5>
 
-              <!-- Areas list -->
-              <div class="container">
-                <div
-                  class="row justify-content-center text-center text-md-start"
-                >
-                  <!-- First row with 8 items -->
-                  <div class="col-12">
-                    <ul
-                      class="list-unstyled area-list grid-8 mb-0"
-                      style="font-size: 1.25rem"
-                    >
-                      <li>Camberley</li>
-                      <li>Blackwater</li>
-                      <li>Frimley</li>
-                      <li>Mytchett</li>
-                      <li>AshVale</li>
-                      <li>Farnbrough</li>
-                      <li>Yateley</li>
-                      <li>Sandhurst</li>
-                    </ul>
-                  </div>
-
-                  <!-- Second row with 7 items -->
-                  <div class="col-12">
-                    <ul
-                      class="list-unstyled area-list grid-7 mb-0"
-                      style="font-size: 1.25rem"
-                    >
-                      <li>Crowthorne</li>
-                      <li>Lightwater</li>
-                      <li>Bagshot</li>
-                      <li>Windlesham</li>
-                      <li>West End</li>
-                      <li>Bisley</li>
-                      <li>Aldershot</li>
-                    </ul>
-                  </div>
+            <!-- Areas list -->
+            <div class="container">
+              <div class="row justify-content-center text-center text-md-start">
+                <div class="col-12">
+                  <ul class="list-unstyled area-list grid-8 mb-0 areas-text">
+                    <li>Camberley</li>
+                    <li>Blackwater</li>
+                    <li>Frimley</li>
+                    <li>Mytchett</li>
+                    <li>AshVale</li>
+                    <li>Farnbrough</li>
+                    <li>Yateley</li>
+                    <li>Sandhurst</li>
+                  </ul>
+                </div>
+                <div class="col-12">
+                  <ul class="list-unstyled area-list grid-7 mb-0 areas-text">
+                    <li>Crowthorne</li>
+                    <li>Lightwater</li>
+                    <li>Bagshot</li>
+                    <li>Windlesham</li>
+                    <li>West End</li>
+                    <li>Bisley</li>
+                    <li>Aldershot</li>
+                  </ul>
                 </div>
               </div>
+            </div>
 
-              <!-- Action buttons inside the box -->
-              <div class="text-center mt-4">
-                <a
-                  href="#book-now"
-                  class="btn btn-warning btn-lg shadow-sm hero-btn me-2 mb-2 mb-md-0"
-                >
-                  <i class="fas fa-taxi me-2"></i>Book
-                </a>
-                <a
-                  href="tel:+447447820040"
-                  class="btn btn-warning btn-lg shadow-sm hero-btn"
-                >
-                  <i class="fas fa-phone me-2"></i>Call
-                </a>
-              </div>
+            <!-- Action buttons -->
+            <div class="text-center mt-4">
+              <a
+                href="#book-now"
+                class="btn btn-success btn-lg shadow-sm hero-btn me-2 mb-2 mb-md-0"
+              >
+                <i class="fas fa-taxi me-2"></i>Book Now
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
+
     <!-- Book Now Form Section -->
     <section
       id="book-now"
@@ -300,6 +256,7 @@
                   <option>Airport Transfers</option>
                   <option>Work Transfers</option>
                   <option>Local Transfers</option>
+                  <option>Long Distance</option>
                 </select>
               </div>
 
@@ -1244,6 +1201,9 @@
       target="_blank"
     >
       <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+447447820040" class="call-float" target="_blank">
+      <i class="fas fa-phone"></i>
     </a>
 
     <!-- Bootstrap JS CDN (Bundle with Popper) -->

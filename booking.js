@@ -51,55 +51,55 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Toggle field visibility and requirements
-  function updateFieldVisibility() {
-    const sel = serviceType.value;
-    const isAirport = sel === 'Airport Transfers';
-    const isCity = sel === 'Local Transfers';
-    const isCorp = sel === 'Work Transfers';
+ function updateFieldVisibility() {
+  const sel = serviceType.value;
+  const isAirport = sel === 'Airport Transfers';
+  const isCity = sel === 'Local Transfers';
+  const isCorp = sel === 'Work Transfers';
+  const isLongDistance = sel === 'Long Distance'; // treat same as city/work
 
-    allCols.forEach(col => {
-      const input = col.querySelector('input, select, textarea');
-      const asterisk = col.querySelector('label .text-danger');
-      const isCityVisible = col.hasAttribute('data-city-visible');
-      const isInAirport = airportFields.contains(col);
+  allCols.forEach(col => {
+    const input = col.querySelector('input, select, textarea');
+    const asterisk = col.querySelector('label .text-danger');
+    const isCityVisible = col.hasAttribute('data-city-visible');
+    const isInAirport = airportFields.contains(col);
 
-      let shouldShow = false;
-      let shouldRequire = false;
+    let shouldShow = false;
+    let shouldRequire = false;
 
-      if (!sel) {
-        shouldShow = true;
-        shouldRequire = input?.dataset.originalRequired === 'true';
-      } else if (isAirport) {
-        shouldShow = isInAirport || col === serviceType.closest('[class*="col-"]');
+    if (!sel) {
+      // Default: show city/work/long-distance fields by default
+      shouldShow = isCityVisible || col === serviceType.closest('[class*="col-"]');
+      shouldRequire = input?.dataset.originalRequired === 'true' && shouldShow;
+    } else if (isAirport) {
+      shouldShow = isInAirport || col === serviceType.closest('[class*="col-"]');
+      const airportRequiredIds = ["airportName", "flightNumber", "dropoffAddress", "airportPassengerName", "airportContact"];
+      shouldRequire = airportRequiredIds.includes(input?.id) && shouldShow;
+    } else if (isCity || isCorp || isLongDistance) {
+      shouldShow = isCityVisible || col === serviceType.closest('[class*="col-"]');
+      shouldRequire = input?.dataset.originalRequired === 'true' && shouldShow;
+    }
 
-        const airportRequiredIds = ["airportName", "flightNumber", "dropoffAddress", "airportPassengerName", "airportContact"];
-        shouldRequire = airportRequiredIds.includes(input?.id) && shouldShow;
+    col.classList.toggle('d-none', !shouldShow);
+
+    if (input) {
+      if (shouldRequire) {
+        input.setAttribute('required', 'true');
+      } else {
+        input.removeAttribute('required');
       }
+    }
 
-     else if (isCity || isCorp) {
-  shouldShow = isCityVisible || col === serviceType.closest('[class*="col-"]');
-  shouldRequire = input?.dataset.originalRequired === 'true' && shouldShow;
+    if (asterisk) {
+      asterisk.classList.toggle('d-none', !shouldRequire);
+    }
+  });
+
+  airportFields.classList.toggle('d-none', !isAirport);
 }
 
 
-      col.classList.toggle('d-none', !shouldShow);
 
-      if (input) {
-        if (shouldRequire) {
-          input.setAttribute('required', 'true');
-        } else {
-          input.removeAttribute('required');
-        }
-      }
-
-      if (asterisk) {
-        asterisk.classList.toggle('d-none', !shouldRequire);
-      }
-
-    });
-
-    airportFields.classList.toggle('d-none', !isAirport);
-  }
 
   // Listen for service type change
   serviceType.addEventListener('change', updateFieldVisibility);
