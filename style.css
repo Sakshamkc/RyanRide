@@ -318,6 +318,21 @@
           transition: transform 0.3s ease, color 0.3s ease;
           cursor: pointer;
         }
+        .area-list {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  gap: 10px 20px; /* row-gap and col-gap */
+  padding: 0;
+}
+
+.grid-8 {
+  grid-template-columns: repeat(8, auto);
+}
+
+.grid-7 {
+  grid-template-columns: repeat(7, auto);
+}
 
         .area-list li:hover {
           transform: scale(1.05);
@@ -538,6 +553,7 @@
 
           .area-list {
             margin-top: 1rem;
+            font-size: 1.5rem;
           }
 
           #testimonials .testimonial-box {
@@ -634,7 +650,11 @@
           font-size: 0.9em;
           color: #777;
         }
-
+.areas-text {
+  font-size: 1.15rem;   /* bigger text */
+  font-weight: 600;    /* semi-bold */
+  line-height: 1.6;    /* better spacing */
+}
         /* Navigation Dots */
         .testimonial-navigation {
           margin-top: 30px;
@@ -696,7 +716,7 @@
           }
 
           .area-list li {
-            font-size: 0.8rem;
+            font-size: 1.15rem;
             line-height: 1.4;
           }
 
@@ -723,7 +743,15 @@
           .carousel-caption {
             padding: 15px;
           }
-
+.grid-8 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-7 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .area-list li {
+    text-align: left;
+  }
           .area-card h5 {
             font-size: 1.2rem;
           }

@@ -159,12 +159,16 @@
             class="carousel-caption d-flex justify-content-center align-items-center h-100"
           >
             <div
-              class="bg-dark bg-opacity-75 text-white p-4 rounded shadow-lg w-100 mx-3"
+              class="bg-dark bg-opacity-75 text-white p-4 rounded shadow-lg w-60 mx-3"
               style="max-width: 1000px"
             >
               <!-- Heading -->
-              <h5 class="fw-bold text-uppercase mb-3 display-6 text-center">
-                Areas We Cover
+              <h5
+                class="fw-bold text-uppercase mb-3 display-6 text-center;"
+                style="font-size: 1.25rem"
+              >
+                We offer Airport Transfer, Local transfer and Corporate
+                transfer:
               </h5>
 
               <!-- Areas list -->
@@ -172,78 +176,36 @@
                 <div
                   class="row justify-content-center text-center text-md-start"
                 >
-                  <div class="col-6 col-md-3 mb-3">
-                    <ul class="list-unstyled area-list mb-0">
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Camberley
-                      </li>
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Blackwater
-                      </li>
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Frimley
-                      </li>
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Mytchett
-                      </li>
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Ash Vale
-                      </li>
+                  <!-- First row with 8 items -->
+                  <div class="col-12">
+                    <ul
+                      class="list-unstyled area-list grid-8 mb-0"
+                      style="font-size: 1.25rem"
+                    >
+                      <li>Camberley</li>
+                      <li>Blackwater</li>
+                      <li>Frimley</li>
+                      <li>Mytchett</li>
+                      <li>AshVale</li>
+                      <li>Farnbrough</li>
+                      <li>Yateley</li>
+                      <li>Sandhurst</li>
                     </ul>
                   </div>
 
-                  <div class="col-6 col-md-3 mb-3">
-                    <ul class="list-unstyled area-list mb-0">
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Farnbrough
-                      </li>
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Yateley
-                      </li>
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Sandhurst
-                      </li>
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Crowthorne
-                      </li>
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Lightwater
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div class="col-6 col-md-3 mb-3">
-                    <ul class="list-unstyled area-list mb-0">
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Bagshot
-                      </li>
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Windlesham
-                      </li>
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        West End
-                      </li>
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Bisley
-                      </li>
-                      <li>
-                        <i class="fas fa-map-marker-alt text-warning me-2"></i>
-                        Aldershot
-                      </li>
+                  <!-- Second row with 7 items -->
+                  <div class="col-12">
+                    <ul
+                      class="list-unstyled area-list grid-7 mb-0"
+                      style="font-size: 1.25rem"
+                    >
+                      <li>Crowthorne</li>
+                      <li>Lightwater</li>
+                      <li>Bagshot</li>
+                      <li>Windlesham</li>
+                      <li>West End</li>
+                      <li>Bisley</li>
+                      <li>Aldershot</li>
                     </ul>
                   </div>
                 </div>
@@ -285,7 +247,7 @@
           <form id="bookingForm">
             <div class="row g-4">
               <!-- Full Name -->
-              <div class="col-md-4" data-city-visible>
+              <div class="col-6 col-md-4" data-city-visible>
                 <label for="fullName" class="form-label">
                   Name <span class="text-danger d-none">*</span>
                 </label>
@@ -298,8 +260,9 @@
                   required
                 />
               </div>
+
               <!-- Phone Number -->
-              <div class="col-md-4" data-city-visible>
+              <div class="col-6 col-md-4" data-city-visible>
                 <label for="phoneNumber" class="form-label">
                   Phone Number <span class="text-danger d-none">*</span>
                 </label>
@@ -314,8 +277,8 @@
               </div>
 
               <!-- Email -->
-              <div class="col-md-4" data-city-visible>
-                <label for="email" class="form-label"> Email Address </label>
+              <div class="col-6 col-md-4" data-city-visible>
+                <label for="email" class="form-label">Email Address</label>
                 <input
                   type="email"
                   class="form-control"
@@ -323,20 +286,24 @@
                   placeholder="Enter your email address"
                 />
               </div>
-              <div class="col-md-6" data-city-visible>
-                <label for="serviceType" class="form-label">
-                  Select a Service
-                </label>
+
+              <!-- Service Type -->
+              <div class="col-6 col-md-6" data-city-visible>
+                <label for="serviceType" class="form-label"
+                  >Select a Service</label
+                >
                 <select class="form-select" id="serviceType" name="serviceType">
                   <option selected disabled value="">
                     Please select a service type
                   </option>
                   <option>Airport Transfers</option>
                   <option>Work Transfers</option>
-                  <option>City Transfers</option>
+                  <option>Local Transfers</option>
                 </select>
               </div>
-              <div class="col-md-6" data-city-visible>
+
+              <!-- Vehicle Type -->
+              <div class="col-6 col-md-6" data-city-visible>
                 <label for="vehicleType" class="form-label">
                   Select a Vehicle<span class="text-danger d-none">*</span>
                 </label>
@@ -351,13 +318,10 @@
               </div>
 
               <!-- Pickup Address -->
-              <div class="col-md-6" data-city-visible>
+              <div class="col-6 col-md-6" data-city-visible>
                 <label for="pickupLocation" class="form-label mb-1">
                   Pickup Address <span class="text-danger d-none">*</span>
                 </label>
-                <small class="text-muted d-block mb-1"
-                  >Include Door No, Street Name and Post Code</small
-                >
                 <input
                   type="text"
                   class="form-control"
@@ -366,14 +330,12 @@
                   required
                 />
               </div>
+
               <!-- Destination Address -->
-              <div class="col-md-6" data-city-visible>
+              <div class="col-6 col-md-6" data-city-visible>
                 <label for="destination" class="form-label mb-1">
                   Destination Address <span class="text-danger d-none">*</span>
                 </label>
-                <small class="text-muted d-block mb-1"
-                  >Include Door No, Street Name and Post Code</small
-                >
                 <input
                   type="text"
                   class="form-control"
@@ -384,7 +346,7 @@
               </div>
 
               <!-- Passenger Count -->
-              <div class="col-md-6">
+              <div class="col-6 col-md-6">
                 <label for="passengerCount" class="form-label">
                   No of Passengers <span class="text-danger d-none">*</span>
                 </label>
@@ -397,7 +359,7 @@
               </div>
 
               <!-- Luggage Count -->
-              <div class="col-md-6">
+              <div class="col-6 col-md-6">
                 <label for="luggageCount" class="form-label">
                   No. of Luggages <span class="text-danger d-none">*</span>
                 </label>
@@ -408,7 +370,9 @@
                   min="0"
                 />
               </div>
-              <div class="col-md-4">
+
+              <!-- Date -->
+              <div class="col-6 col-md-4">
                 <label for="pickupDate" class="form-label">
                   Date <span class="text-danger d-none">*</span>
                 </label>
@@ -420,8 +384,8 @@
                 />
               </div>
 
-              <!-- Pickup Time -->
-              <div class="col-md-4">
+              <!-- Time -->
+              <div class="col-6 col-md-4">
                 <label for="pickupTime" class="form-label">
                   Time <span class="text-danger d-none">*</span>
                 </label>
@@ -432,7 +396,9 @@
                   placeholder="Select time"
                 />
               </div>
-              <div class="col-md-4 d-flex align-items-end">
+
+              <!-- Return Journey -->
+              <div class="col-12 col-md-4 d-flex align-items-end">
                 <div class="form-check">
                   <input
                     class="form-check-input"
@@ -445,7 +411,7 @@
                 </div>
               </div>
 
-              <!-- Additional Notes (optional) -->
+              <!-- Notes -->
               <div class="col-12">
                 <label for="specialInstructions" class="form-label"
                   >Additional Notes</label
@@ -465,13 +431,14 @@
                 </button>
               </div>
             </div>
+
             <!-- Airport Transfers Fields -->
             <div id="airportFields" class="row g-4 d-none">
               <!-- Airport -->
-              <div class="col-md-6">
-                <label for="airportName" class="form-label"
-                  >Airport <span class="text-danger d-none">*</span></label
-                >
+              <div class="col-6 col-md-6">
+                <label for="airportName" class="form-label">
+                  Airport <span class="text-danger d-none">*</span>
+                </label>
                 <select class="form-select" id="airportName">
                   <option disabled selected value="">Select Airport</option>
                   <option>London Gatwick Airport (LGW), North Terminal</option>
@@ -486,10 +453,10 @@
               </div>
 
               <!-- Flight No -->
-              <div class="col-md-6">
-                <label for="flightNumber" class="form-label"
-                  >Flight No. <span class="text-danger d-none">*</span></label
-                >
+              <div class="col-6 col-md-6">
+                <label for="flightNumber" class="form-label">
+                  Flight No. <span class="text-danger d-none">*</span>
+                </label>
                 <input
                   type="text"
                   class="form-control"
@@ -499,10 +466,10 @@
               </div>
 
               <!-- Arriving From -->
-              <div class="col-md-6">
+              <div class="col-6 col-md-6">
                 <label for="arrivingFrom" class="form-label"
-                  >Arriving From
-                </label>
+                  >Arriving From</label
+                >
                 <input
                   type="text"
                   class="form-control"
@@ -512,10 +479,10 @@
               </div>
 
               <!-- Pick Me After -->
-              <div class="col-md-6">
+              <div class="col-6 col-md-6">
                 <label for="pickMeAfter" class="form-label"
-                  >Pick Me After (minutes)
-                </label>
+                  >Pick Me After (minutes)</label
+                >
                 <input
                   type="number"
                   class="form-control"
@@ -527,11 +494,10 @@
               </div>
 
               <!-- Drop Off Address -->
-              <div class="col-md-6">
-                <label for="dropoffAddress" class="form-label"
-                  >Drop-Off Address
-                  <span class="text-danger d-none">*</span></label
-                >
+              <div class="col-6 col-md-6">
+                <label for="dropoffAddress" class="form-label">
+                  Drop-Off Address <span class="text-danger d-none">*</span>
+                </label>
                 <input
                   type="text"
                   class="form-control"
@@ -542,7 +508,7 @@
               </div>
 
               <!-- Door No -->
-              <div class="col-md-6">
+              <div class="col-6 col-md-6">
                 <label for="doorNo" class="form-label">Door No.</label>
                 <input
                   type="text"
@@ -551,16 +517,16 @@
                   placeholder="e.g. 14"
                 />
               </div>
+
               <!-- Passenger Details -->
               <div class="col-12">
                 <h5 class="mt-3">Passenger Details</h5>
               </div>
 
-              <div class="col-md-4">
-                <label for="airportPassengerName" class="form-label"
-                  >Passenger Name
-                  <span class="text-danger d-none">*</span></label
-                >
+              <div class="col-6 col-md-4">
+                <label for="airportPassengerName" class="form-label">
+                  Passenger Name <span class="text-danger d-none">*</span>
+                </label>
                 <input
                   type="text"
                   class="form-control"
@@ -570,11 +536,10 @@
                 />
               </div>
 
-              <div class="col-md-4">
-                <label for="airportContact" class="form-label"
-                  >Contact Number
-                  <span class="text-danger d-none">*</span></label
-                >
+              <div class="col-6 col-md-4">
+                <label for="airportContact" class="form-label">
+                  Contact Number <span class="text-danger d-none">*</span>
+                </label>
                 <input
                   type="tel"
                   class="form-control"
@@ -583,10 +548,11 @@
                   placeholder="Enter your contact number"
                 />
               </div>
-              <div class="col-md-4">
+
+              <div class="col-6 col-md-4">
                 <label for="airportEmail" class="form-label"
-                  >Email Address
-                </label>
+                  >Email Address</label
+                >
                 <input
                   type="email"
                   class="form-control"
@@ -600,7 +566,7 @@
                 <h5 class="mt-4">Vehicle Details</h5>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-6 col-md-4">
                 <label for="airportVehicle" class="form-label">Vehicle</label>
                 <select id="airportVehicle" class="form-select">
                   <option selected disabled value="">Select vehicle</option>
@@ -610,10 +576,10 @@
                 </select>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-6 col-md-4">
                 <label for="airportPassengers" class="form-label"
-                  >Passengers
-                </label>
+                  >Passengers</label
+                >
                 <input
                   type="number"
                   class="form-control"
@@ -623,10 +589,10 @@
                 />
               </div>
 
-              <div class="col-md-4">
+              <div class="col-6 col-md-4">
                 <label for="airportSmallLuggage" class="form-label"
-                  >Small Luggage
-                </label>
+                  >Small Luggage</label
+                >
                 <input
                   type="number"
                   class="form-control"
@@ -635,10 +601,10 @@
                 />
               </div>
 
-              <div class="col-md-4">
+              <div class="col-6 col-md-4">
                 <label for="airportLargeLuggage" class="form-label"
-                  >Large Luggage
-                </label>
+                  >Large Luggage</label
+                >
                 <input
                   type="number"
                   class="form-control"
@@ -647,6 +613,7 @@
                 />
               </div>
 
+              <!-- Submit -->
               <div class="col-12 mt-4">
                 <button type="submit" class="btn btn-warning btn-lg px-5">
                   Submit
@@ -657,6 +624,7 @@
         </div>
       </div>
     </section>
+
     <!-- About Us Section -->
     <section id="about" class="section-padding bg-light-grey">
       <div class="container">
@@ -762,18 +730,14 @@
           </div>
           <div class="col-md-4">
             <div class="card text-center bg-black text-white border-0">
-              <img
-                src="map.jpg"
-                class="card-img-top img-fluid custom-map-img"
-                alt="Map of coverage areas"
-              />
               <div class="card-body px-3 py-4">
-                <h5 class="card-title fw-bold">Areas We Cover</h5>
-                <p class="card-text small mb-3">
+                <h4 class="card-title fw-bold">Areas We Cover</h4>
+                <p class="card-text small mb-3 areas-text">
                   • Camberley • Blackwater • Frimley • Mytchett • Ash Vale •
                   Farnborough • Yateley • Sandhurst • Crowthorne • Lightwater •
                   Bagshot • Windlesham • West End • Bisley • Aldershot
                 </p>
+
                 <a
                   href="#book-now"
                   class="btn btn-warning text-black fw-semibold rounded-pill px-4"

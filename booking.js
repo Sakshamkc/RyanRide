@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateFieldVisibility() {
     const sel = serviceType.value;
     const isAirport = sel === 'Airport Transfers';
-    const isCity = sel === 'City Transfers';
+    const isCity = sel === 'Local Transfers';
     const isCorp = sel === 'Work Transfers';
 
     allCols.forEach(col => {
