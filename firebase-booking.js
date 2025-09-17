@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const sel = serviceType.value;
     const isAirport = sel === 'Airport Transfers';
     const isCity = sel === 'City Transfers';
-    const isCorp = sel === 'Corporate Transfers';
+    const isCorp = sel === 'Work Transfers';
 
     allCols.forEach(col => {
       const input = col.querySelector('input, select, textarea');
@@ -71,8 +71,12 @@ document.addEventListener("DOMContentLoaded", () => {
         shouldRequire = input?.dataset.originalRequired === 'true';
       } else if (isAirport) {
         shouldShow = isInAirport || col === serviceType.closest('[class*="col-"]');
-        shouldRequire = shouldShow;
-      } else if (isCity) {
+
+        const airportRequiredIds = ["airportName", "flightNumber", "dropoffAddress", "airportPassengerName", "airportContact"];
+        shouldRequire = airportRequiredIds.includes(input?.id) && shouldShow;
+      }
+
+      else if (isCity) {
         shouldShow = isCityVisible || col === serviceType.closest('[class*="col-"]');
         shouldRequire = input?.dataset.originalRequired === 'true' && shouldShow;
       } else if (isCorp) {
@@ -103,8 +107,13 @@ document.addEventListener("DOMContentLoaded", () => {
   serviceType.addEventListener('change', updateFieldVisibility);
 
   // Submit form
+  // Submit form
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.innerText = "Submitting..."; // <-- works for Airport too
 
     const pickupVal = document.getElementById("pickupLocation")?.value.trim() || "";
     const destinationVal = document.getElementById("destination")?.value.trim() || "";
@@ -150,10 +159,6 @@ document.addEventListener("DOMContentLoaded", () => {
         needReturnJourney: document.getElementById("needReturnJourney").checked ? "Yes" : "No"
       };
     }
-
-    const submitBtn = form.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    submitBtn.innerText = "Submitting...";
 
     try {
       await emailjs.send("service_i2n9bqa", "template_kfub3tp", data);
