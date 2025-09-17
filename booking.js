@@ -76,13 +76,11 @@ document.addEventListener("DOMContentLoaded", () => {
         shouldRequire = airportRequiredIds.includes(input?.id) && shouldShow;
       }
 
-      else if (isCity) {
-        shouldShow = isCityVisible || col === serviceType.closest('[class*="col-"]');
-        shouldRequire = input?.dataset.originalRequired === 'true' && shouldShow;
-      } else if (isCorp) {
-        shouldShow = true;
-        shouldRequire = input?.dataset.originalRequired === 'true';
-      }
+     else if (isCity || isCorp) {
+  shouldShow = isCityVisible || col === serviceType.closest('[class*="col-"]');
+  shouldRequire = input?.dataset.originalRequired === 'true' && shouldShow;
+}
+
 
       col.classList.toggle('d-none', !shouldShow);
 
