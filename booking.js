@@ -136,8 +136,8 @@ document.addEventListener("DOMContentLoaded", () => {
         passengerCount: document.getElementById("airportPassengers").value,
         smallLuggage: document.getElementById("airportSmallLuggage").value,
         largeLuggage: document.getElementById("airportLargeLuggage").value,
-        pickupDate: document.getElementById("pickupDate").value,
-        pickupTime: document.getElementById("pickupTime").value,
+        pickupDate: document.getElementById("pickupDate")?.value ,
+        pickupTime: document.getElementById("pickupTime")?.value,
         specialInstructions: document.getElementById("specialInstructions").value
       };
     } else {
