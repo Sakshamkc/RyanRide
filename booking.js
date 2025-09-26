@@ -51,52 +51,52 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Toggle field visibility and requirements
- function updateFieldVisibility() {
-  const sel = serviceType.value;
-  const isAirport = sel === 'Airport Transfers';
-  const isCity = sel === 'Local Transfers';
-  const isCorp = sel === 'Work Transfers';
-  const isLongDistance = sel === 'Long Distance'; // treat same as city/work
+  function updateFieldVisibility() {
+    const sel = serviceType.value;
+    const isAirport = sel === 'Airport Transfers';
+    const isCity = sel === 'Local Transfers';
+    const isCorp = sel === 'Work Transfers';
+    const isLongDistance = sel === 'Long Distance'; // treat same as city/work
 
-  allCols.forEach(col => {
-    const input = col.querySelector('input, select, textarea');
-    const asterisk = col.querySelector('label .text-danger');
-    const isCityVisible = col.hasAttribute('data-city-visible');
-    const isInAirport = airportFields.contains(col);
+    allCols.forEach(col => {
+      const input = col.querySelector('input, select, textarea');
+      const asterisk = col.querySelector('label .text-danger');
+      const isCityVisible = col.hasAttribute('data-city-visible');
+      const isInAirport = airportFields.contains(col);
 
-    let shouldShow = false;
-    let shouldRequire = false;
+      let shouldShow = false;
+      let shouldRequire = false;
 
-    if (!sel) {
-      // Default: show city/work/long-distance fields by default
-      shouldShow = isCityVisible || col === serviceType.closest('[class*="col-"]');
-      shouldRequire = input?.dataset.originalRequired === 'true' && shouldShow;
-    } else if (isAirport) {
-      shouldShow = isInAirport || col === serviceType.closest('[class*="col-"]');
-      const airportRequiredIds = ["airportName", "flightNumber", "dropoffAddress", "airportPassengerName", "airportContact"];
-      shouldRequire = airportRequiredIds.includes(input?.id) && shouldShow;
-    } else if (isCity || isCorp || isLongDistance) {
-      shouldShow = isCityVisible || col === serviceType.closest('[class*="col-"]');
-      shouldRequire = input?.dataset.originalRequired === 'true' && shouldShow;
-    }
-
-    col.classList.toggle('d-none', !shouldShow);
-
-    if (input) {
-      if (shouldRequire) {
-        input.setAttribute('required', 'true');
-      } else {
-        input.removeAttribute('required');
+      if (!sel) {
+        // Default: show city/work/long-distance fields by default
+        shouldShow = isCityVisible || col === serviceType.closest('[class*="col-"]');
+        shouldRequire = input?.dataset.originalRequired === 'true' && shouldShow;
+      } else if (isAirport) {
+        shouldShow = isInAirport || col === serviceType.closest('[class*="col-"]');
+        const airportRequiredIds = ["airportName", "flightNumber", "dropoffAddress", "airportPassengerName", "airportContact"];
+        shouldRequire = airportRequiredIds.includes(input?.id) && shouldShow;
+      } else if (isCity || isCorp || isLongDistance) {
+        shouldShow = isCityVisible || col === serviceType.closest('[class*="col-"]');
+        shouldRequire = input?.dataset.originalRequired === 'true' && shouldShow;
       }
-    }
 
-    if (asterisk) {
-      asterisk.classList.toggle('d-none', !shouldRequire);
-    }
-  });
+      col.classList.toggle('d-none', !shouldShow);
 
-  airportFields.classList.toggle('d-none', !isAirport);
-}
+      if (input) {
+        if (shouldRequire) {
+          input.setAttribute('required', 'true');
+        } else {
+          input.removeAttribute('required');
+        }
+      }
+
+      if (asterisk) {
+        asterisk.classList.toggle('d-none', !shouldRequire);
+      }
+    });
+
+    airportFields.classList.toggle('d-none', !isAirport);
+  }
 
 
 
@@ -160,18 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       await emailjs.send("service_i2n9bqa", "template_kfub3tp", data);
-
-      Swal.fire({
-        icon: 'success',
-        title: 'Booking Submitted!',
-        text: 'Thank you for booking with HR Taxi. We will confirm your ride shortly.',
-        confirmButtonColor: '#3085d6',
-        confirmButtonText: 'OK'
-      });
-
-      form.reset();
-      serviceType.value = "";
-      serviceType.dispatchEvent(new Event('change'));
+      window.location.href = "thank-you.html";
     } catch (error) {
       Swal.fire({
         icon: 'error',
