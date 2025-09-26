@@ -21,14 +21,6 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17573246746"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'AW-17573246746');
-  </script>
 </head>
 
 <body>
@@ -212,9 +204,7 @@
                 Select a Vehicle<span class="text-danger d-none">*</span>
               </label>
               <select class="form-select" id="vehicleType">
-                <option selected disabled value="">
-                  Select Vehicle
-                </option>
+                <option selected disabled value="">Select Vehicle</option>
                 <option>Saloon</option>
                 <option>Executive</option>
                 <option>Mini Bus(8 Seater)</option>
@@ -251,22 +241,6 @@
                 No. of Luggages <span class="text-danger d-none">*</span>
               </label>
               <input type="number" class="form-control" id="luggageCount" min="0" />
-            </div>
-
-            <!-- Date -->
-            <div class="col-6 col-md-4">
-              <label for="pickupDate" class="form-label">
-                Date <span class="text-danger d-none">*</span>
-              </label>
-              <input type="text" class="form-control" id="pickupDate" placeholder="Select date" />
-            </div>
-
-            <!-- Time -->
-            <div class="col-6 col-md-4">
-              <label for="pickupTime" class="form-label">
-                Time <span class="text-danger d-none">*</span>
-              </label>
-              <input type="text" class="form-control" id="pickupTime" placeholder="Select time" />
             </div>
 
             <!-- Return Journey -->
@@ -348,6 +322,20 @@
             <div class="col-4 col-md-6">
               <label for="doorNo" class="form-label">Door No.</label>
               <input type="text" class="form-control" id="doorNo" placeholder="e.g. 14" />
+            </div>
+            <div class="col-6 col-md-6">
+              <label for="pickupDate" class="form-label">
+                Date <span class="text-danger d-none">*</span>
+              </label>
+              <input type="text" class="form-control" id="pickupDate" placeholder="Select date" />
+            </div>
+
+            <!-- Time -->
+            <div class="col-6 col-md-6">
+              <label for="pickupTime" class="form-label">
+                Time <span class="text-danger d-none">*</span>
+              </label>
+              <input type="text" class="form-control" id="pickupTime" placeholder="Select time" />
             </div>
 
             <!-- Passenger Details -->
