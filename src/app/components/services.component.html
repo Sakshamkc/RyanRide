@@ -1,0 +1,44 @@
+<section id="services" class="py-5 text-center">
+  <div class="container">
+    <h2 class="display-5 fw-bold mb-4">Our Services</h2>
+    <p class="lead mx-auto text-muted" style="max-width: 800px">
+      We have a wide range of vehicles to cater to all needs. All vehicles are
+      non-smoking, air-conditioned, fully licensed by the local authority and
+      have comprehensive insurance.
+    </p>
+    <div class="row g-4">
+      @for (service of services; track service.title) {
+        <div class="col-md-4">
+          <div class="card text-center bg-black text-white border-0">
+            <img
+              [src]="service.image"
+              class="card-img-top img-fluid custom-map-img"
+            />
+            <div class="card-body px-3 py-4">
+              <h5 class="card-title fw-bold">{{ service.title }}</h5>
+              <p class="card-text small mb-3">{{ service.description }}</p>
+              <a
+                href="#book-now"
+                class="btn btn-warning text-black fw-semibold rounded-pill px-4"
+                >Book Now</a
+              >
+            </div>
+          </div>
+        </div>
+      }
+      <div class="col-md-4">
+        <div class="card text-center bg-black text-white border-0">
+          <div class="card-body px-3 py-4">
+            <h4 class="card-title fw-bold">Areas We Cover</h4>
+            <p class="card-text small mb-3 areas-text">{{ areas }}</p>
+            <a
+              href="#book-now"
+              class="btn btn-warning text-black fw-semibold rounded-pill px-4"
+              >Book Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

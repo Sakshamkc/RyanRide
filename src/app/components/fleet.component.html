@@ -1,0 +1,47 @@
+<section id="fleet" class="section-padding bg-light">
+  <div class="container">
+    <h2 class="text-center display-5 fw-bold mb-2">Explore Our Fleet</h2>
+    <p class="text-center text-muted mb-5">
+      Choose from our range of premium vehicles
+    </p>
+    <div class="row g-4">
+      @for (vehicle of vehicles; track vehicle.name) {
+        <div class="col-md-4">
+          <div class="card text-center border-0 shadow-sm h-100">
+            <img
+              [src]="vehicle.image"
+              class="card-img-top p-3"
+              [alt]="vehicle.name"
+            />
+            <div class="card-body">
+              <h5 class="card-title fw-bold">{{ vehicle.name }}</h5>
+              <hr
+                class="mx-auto mb-3"
+                style="width: 50px; border-top: 3px solid #d89216"
+              />
+              <ul class="list-unstyled mb-4">
+                <li>
+                  <i class="fas fa-user-friends text-warning me-2"></i>
+                  Passengers: <strong>{{ vehicle.passengers }}</strong>
+                </li>
+                <li>
+                  <i class="fas fa-suitcase text-warning me-2"></i> Luggage
+                  Carry: <strong>{{ vehicle.luggage }}</strong>
+                </li>
+                <li>
+                  <i class="fas fa-briefcase text-warning me-2"></i> Hand Bags:
+                  <strong>{{ vehicle.handBags }}</strong>
+                </li>
+              </ul>
+              <a
+                href="#book-now"
+                class="btn btn-warning text-black fw-semibold w-75"
+                >Book</a
+              >
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

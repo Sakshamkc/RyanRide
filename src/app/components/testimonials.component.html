@@ -1,0 +1,35 @@
+<section class="testimonials-section" id="testimonials">
+  <h2>What Our Customers Say</h2>
+
+  <div class="testimonial-container">
+    @for (testimonial of testimonials; track testimonial.name; let i = $index) {
+      <div class="testimonial-item" [class.active]="i === currentIndex">
+        <p class="testimonial-text">{{ testimonial.text }}</p>
+        <div class="testimonial-author">
+          <img
+            [src]="testimonial.image"
+            [alt]="testimonial.name"
+            class="author-img"
+          />
+          <p class="author-name">{{ testimonial.name }}</p>
+          <p class="author-title">{{ testimonial.title }}</p>
+        </div>
+      </div>
+    }
+
+    <button
+      class="btn btn-outline-secondary position-absolute"
+      style="top: 50%; left: 10px; transform: translateY(-50%)"
+      (click)="prev()"
+    >
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <button
+      class="btn btn-outline-secondary position-absolute"
+      style="top: 50%; right: 10px; transform: translateY(-50%)"
+      (click)="next()"
+    >
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+</section>
