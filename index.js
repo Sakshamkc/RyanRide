@@ -42,4 +42,12 @@ document.addEventListener("DOMContentLoaded", () => {
         dateFormat: "H:i", // 24-hour format. Use "h:i K" for 12-hour + AM/PM
         time_24hr: true,
     });
+
+    // Drop-off form time pickers (12h AM/PM)
+    flatpickr("#dropoffPickupTime", {
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "h:i K",
+        time_24hr: false,
+    });
 });

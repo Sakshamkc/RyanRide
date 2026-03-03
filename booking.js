@@ -42,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bookingForm = document.getElementById('bookingForm');
   const serviceType = document.getElementById('serviceType');
   const airportFields = document.getElementById('airportFields');
+  const airportDropoffFields = document.getElementById('airportDropoffFields');
   const allCols = bookingForm.querySelectorAll('.row.g-4 > [class*="col-"]');
 
   // Save original required fields
@@ -53,7 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Toggle field visibility and requirements
   function updateFieldVisibility() {
     const sel = serviceType.value;
-    const isAirport = sel === 'Airport Transfers';
+    const isAirportPickup = sel === 'Airport Transfer/Pickup';
+    const isAirportDropoff = sel === 'Airport Transfer/Drop off';
     const isCity = sel === 'Local Transfers';
     const isCorp = sel === 'Work Transfers';
     const isLongDistance = sel === 'Long Distance'; // treat same as city/work
@@ -63,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const asterisk = col.querySelector('label .text-danger');
       const isCityVisible = col.hasAttribute('data-city-visible');
       const isInAirport = airportFields.contains(col);
+      const isInDropoff = airportDropoffFields.contains(col);
 
       let shouldShow = false;
       let shouldRequire = false;
@@ -71,10 +74,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // Default: show city/work/long-distance fields by default
         shouldShow = isCityVisible || col === serviceType.closest('[class*="col-"]');
         shouldRequire = input?.dataset.originalRequired === 'true' && shouldShow;
-      } else if (isAirport) {
+      } else if (isAirportPickup) {
         shouldShow = isInAirport || col === serviceType.closest('[class*="col-"]');
         const airportRequiredIds = ["airportName", "flightNumber", "dropoffAddress", "airportPassengerName", "airportContact"];
         shouldRequire = airportRequiredIds.includes(input?.id) && shouldShow;
+      } else if (isAirportDropoff) {
+        shouldShow = isInDropoff || col === serviceType.closest('[class*="col-"]');
+        const dropoffRequiredIds = ["dropoffAirport", "dropoffTerminal", "dropoffPickupTime", "dropoffPickupAddress", "dropoffPassengerName", "dropoffContact"];
+        shouldRequire = dropoffRequiredIds.includes(input?.id) && shouldShow;
       } else if (isCity || isCorp || isLongDistance) {
         shouldShow = isCityVisible || col === serviceType.closest('[class*="col-"]');
         shouldRequire = input?.dataset.originalRequired === 'true' && shouldShow;
@@ -95,7 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    airportFields.classList.toggle('d-none', !isAirport);
+    airportFields.classList.toggle('d-none', !isAirportPickup);
+    airportDropoffFields.classList.toggle('d-none', !isAirportDropoff);
   }
 
 
@@ -120,10 +128,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Build data object depending on service type
     let data = { serviceType: serviceTypeValue };
 
-    if (serviceTypeValue === "Airport Transfers") {
+    if (serviceTypeValue === "Airport Transfer/Pickup") {
       data = {
         ...data,
         airportName: document.getElementById("airportName").value,
+        terminal: document.getElementById("airportTerminal").value,
         flightNumber: document.getElementById("flightNumber").value,
         arrivingFrom: document.getElementById("arrivingFrom").value,
         pickMeAfter: document.getElementById("pickMeAfter").value,
@@ -139,6 +148,22 @@ document.addEventListener("DOMContentLoaded", () => {
         pickupDate: document.getElementById("pickupDate")?.value,
         pickupTime: document.getElementById("pickupTime")?.value,
         specialInstructions: document.getElementById("specialInstructions").value
+      };
+    } else if (serviceTypeValue === "Airport Transfer/Drop off") {
+      data = {
+        ...data,
+        airportName: document.getElementById("dropoffAirport").value,
+        terminal: document.getElementById("dropoffTerminal").value,
+        pickupTime: document.getElementById("dropoffPickupTime").value,
+        pickupAddress: document.getElementById("dropoffPickupAddress").value,
+        doorNo: document.getElementById("dropoffDoorNo").value,
+        passengerName: document.getElementById("dropoffPassengerName").value,
+        email: document.getElementById("dropoffEmail").value,
+        phoneNumber: document.getElementById("dropoffContact").value,
+        vehicleType: document.getElementById("dropoffVehicle").value,
+        passengerCount: document.getElementById("dropoffPassengers").value,
+        smallLuggage: document.getElementById("dropoffSmallLuggage").value,
+        largeLuggage: document.getElementById("dropoffLargeLuggage").value
       };
     } else {
       data = {
